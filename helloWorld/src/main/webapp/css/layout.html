@@ -9,19 +9,20 @@
       * {
         box-sizing: border-box;
         font-size: 14px;
+        background-color: rgb(205, 209, 119);
       }
       header {
         height: 50px;
-        background-color: wheat;
       }
 
       header > ul {
         list-style-type: none;
+        padding-left: 200px;
       }
 
       header li {
         display: inline-block;
-        width: 20%;
+        width: 23%;
         margin: 20px 5px 15px;
       }
 
@@ -29,42 +30,50 @@
         text-decoration: none;
       }
       nav {
-        background-color: rgb(190, 245, 179);
-        width: 25%;
+        width: 13%;
         height: 60vh;
         float: left;
       }
 
       #navbar {
-        width: 100%;
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
-        padding: 5px;
-      }
-
-      #navh {
-        font-size: 0.7em;
-        padding-left: 5px;
-        padding-bottom: 10px;
-        margin-right: 50px;
+        font-size: 0.9em;
+        padding-left: 15px;
         margin-top: 30px;
       }
 
-      #navh:hover {
-        background-color: rgba(0, 0, 255, 0.433);
-        color: white;
+      #navh {
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+        width: 80%;
       }
 
+      #navh:hover {
+        background-color: white;
+        color:black;
+    }
+nav a:hover{
+  background-color: white;
+  color:black;
+}
       main {
-        background-color: bisque;
-        width: 50%;
+        width: 72%;
         height: 60vh;
         float: left;
       }
 
+      #contentss{
+            width: 100%;
+            border-top: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        #ttop, td{
+            border-bottom: 1px solid black;
+            padding:10px;
+        }
+
       aside {
-        background-color: coral;
-        width: 25%;
+        width: 15%;
         float: left;
         height: 60vh;
       }
@@ -78,28 +87,31 @@
       }
 
       footer {
-        background-color: slategray;
         clear: both;
-        height: 15vh;
+        height: 10vh;
       }
     </style>
   </head>
   <body>
     <header>
       <ul>
-        <li>Home</li>
-        <li>게시판</li>
-        <li>FAQ</li>
-        <li>로그인</li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">게시판</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">로그인</a></li>
       </ul>
     </header>
     <nav>
       <table border="0" id="navbar">
         <tr>
           <th id="navh"><a href="#">게시판 카테고리</a></th>
-          <th id="navh"><a href="#">자유 게시판</a></th>
-          <th id="navh"><a href="#">리뷰게시판</a></th>
-          <th id="navh"><a href="#">네이버 동영상 게시판</a></th>
+          </tr>
+          <tr><th id="navh"><a href="#">자유 게시판</a></th></tr>
+          <tr>
+          <th id="navh"><a href="#">리뷰게시판</a></th></tr>
+          <tr>
+          <th id="navh"><a href="#">네이버 동영상 게시판</a></th></tr>
+          <tr></tr>
           <th id="navh"><a href="#">자료실 게시판</a></th>
         </tr>
       </table>
@@ -192,10 +204,10 @@
     <aside>
       <ul>
         디자인모드
-        <li>빠른 시작 가이드</li>
-        <li>디자인 모드란?</li>
-        <li>아엠 페이지 구조</li>
-        <li>공통 디자인 등록</li>
+        <li><a href="#">빠른 시작 가이드</a></li>
+        <li><a href="#">디자인 모드란?</a></li>
+        <li><a href="#">아엠 페이지 구조</a></li>
+        <li><a href="#">공통 디자인 등록</a></li>
       </ul>
     </aside>
     <footer>
