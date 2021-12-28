@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>userRegister.html</title>
+</head>
+<body>
+	<h2>회원가입</h2>
+	<form action="RegisterUserServlet" method="post">
+		<fieldset>
+			<legend>회원정보</legend>
+			<ul>
+				<li>아이디:<input type="text" name="id" autofocus required></li>
+				<li>이메일:<input type="text" name="email"
+					placeholder="sample@email.com"></li>
+				<li>메모:<textarea cols="30" rows="5" name="memo"></textarea></li>
+				<li>가입경로:<select name="registerBy">
+						<option value="blog">블로그</option>
+						<option value="adv" selected>광고</option>
+						<option value="tel">전화</option>
+				</select>
+				</li>
+			</ul>
+		</fieldset>
+		<fieldset>
+			<legend>이벤트와 새로운 소식</legend>
+			<input type="radio" name="event" value="Y" checked>메일수신 <input
+				type="radio" name="event" value="N">메일수신안함
+		</fieldset>
+		<fieldset>
+			<legend>취미</legend>
+			<input type="checkbox" name="hobby" value="reading" checked>독서
+			<input type="checkbox" name="hobby" value="sleeping">낮잠 
+			<input type="checkbox" name="hobby" value="music">음악
+		</fieldset>
+		<input type="submit"><input type="reset">
+	</form>
+</body>
+</html>
