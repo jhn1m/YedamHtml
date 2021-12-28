@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>css/layout.html</title>
+    <style>
+      * {
+        border: 1px solid green;
+        box-sizing: border-box;
+      }
+      header {
+        height: 50px;
+      }
+
+      nav {
+        width: 25%;
+        height: 60vh;
+        float: left;
+      }
+
+      #navbar {
+        width: 100%;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        padding: 5px;
+      }
+
+      #navh {
+        padding: 5px;
+      }
+
+      #navh:hover {
+        background-color: rgba(0, 0, 255, 0.433);
+        color: white;
+      }
+
+      main {
+        width: 50%;
+        height: 60vh;
+        float: left;
+      }
+
+      aside {
+        width: 25%;
+        float: left;
+        height: 60vh;
+      }
+
+      footer {
+        clear: both;
+        height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <ul>
+        <li>Home</li>
+        <li>게시판</li>
+        <li>FAQ</li>
+        <li>로그인</li>
+      </ul>
+    </header>
+    <nav>
+      <table border="0" id="navbar">
+        <tr>
+          <th id="navh">게시판 카테고리</th>
+          <th id="navh">자유 게시판</th>
+          <th id="navh">리뷰게시판</th>
+          <th id="navh">네이버 동영상 게시판</th>
+          <th id="navh">자료실 게시판</th>
+        </tr>
+      </table>
+    </nav>
+    <main>&lt;main&gt;</main>
+    <aside>&lt;aside&gt;</aside>
+    <footer>&lt;footer&gt;</footer>
+  </body>
+</html>
