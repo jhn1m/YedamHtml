@@ -22,6 +22,27 @@
         background-color: yellow;
         color: blue;
       }
+
+      input:focus {
+        background-color: red;
+        color: white;
+      }
+
+      li:first-child {
+        background-color: chocolate;
+      }
+
+      li:last-child {
+        background-color: darkgreen;
+      }
+
+      li:nth-child(2) {
+        font-size: 1.3em;
+      }
+      li:only-child {
+        font-size: 1.3em;
+        color: tomato;
+      }
     </style>
   </head>
   <body>
@@ -30,8 +51,10 @@
       <ul>
         <li><a href="#">이용안내</a></li>
         <li><a href="#navi">객실 소개</a></li>
+        <h3>손님예약하기</h3>
         <li><a href="#">예약 방법 및 요금</a></li>
         <li><a href="#">예약하기</a></li>
+        <input type="text" name="" placeholder="가상선택자" />
       </ul>
     </nav>
     <div style="height: 800px">
@@ -43,6 +66,13 @@
           <li>가족실</li>
         </ul>
       </nav>
+      <nav>
+        <ul>
+          <li>기타</li>
+          <li>기타2</li>
+        </ul>
+      </nav>
+      <div style="height: 800px"></div>
     </div>
   </body>
 </html>
