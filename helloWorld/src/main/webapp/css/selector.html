@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>css/selector.html</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 10px;
+        box-sizing: border-box;
+      }
+      #row {
+        /* 아이디 선택자 */
+      }
+      h1,
+      p {
+        /* 타입 선택자 */
+      }
+
+      .theme {
+        width: 50%;
+        float: left;
+      }
+
+      .content {
+        width: 50%;
+        float: left;
+      }
+
+      div.theme > ul {
+        margin-left: 10px;
+        list-style-type: upper-alpha;
+      }
+
+      .content > ul {
+        list-style-type: circle;
+      }
+
+      li + ul {
+        background-color: beige;
+      }
+
+      li ~ ul {
+        color: red;
+      }
+
+
+      a[href*="w3"]{
+        color: red;
+      }
+
+      a[class="main"]{
+        background-color: blue;
+      }
+
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li><a class="main first" href="https://www.spec.whatwg.org" target="_blank">HTML</a></li>
+      <li><a class="main second" href="https://www.w3.org" target="_blank">W3</li></a>
+      <li><a class="main second_1" href="http://www.spec.org" target="_blank">SPEC</li></a>
+      <li><a class="main second_2" href="https://www.spec.whatwg.org" target="_parent">ORG</li></a>
+      <li><a class="main" target="_blank">NONE</li></a>
+    </ul>
+
+    <div class="container">
+      <div class="theme">
+        <ul class="left">
+          <li>Apple</li>
+          <li>Banana</li>
+          <li>Cherry</li>
+          <ul>
+            <li>Car</li>
+            <li>Plane</li>
+          </ul>
+        </ul>
+      </div>
+      <div class="content">
+        <ul>
+          <li>Apple</li>
+          <li>Banana</li>
+          <li>Cherry</li>
+          <ul>
+            <li>POw</li>
+            <li>COW</li>
+          </ul>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

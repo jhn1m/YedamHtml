@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>selector_pseudo.html</title>
+    <style>
+      a:link {
+        text-decoration: none;
+      }
+      a:visited {
+        color: green;
+      }
+
+      a:hover {
+        color: pink;
+        background-color: royalblue;
+      }
+
+      a:active {
+        background-color: yellow;
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>home</h1>
+    <nav class="navi">
+      <ul>
+        <li><a href="#">이용안내</a></li>
+        <li><a href="#navi">객실 소개</a></li>
+        <li><a href="#">예약 방법 및 요금</a></li>
+        <li><a href="#">예약하기</a></li>
+      </ul>
+    </nav>
+    <div style="height: 800px">
+      <nav id="navi">
+        <ul>
+          <li>2인실</li>
+          <li>3인실</li>
+          <li>4인실</li>
+          <li>가족실</li>
+        </ul>
+      </nav>
+    </div>
+  </body>
+</html>
