@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .container {
+      width: 1200px;
+      margin: 20px auto;
+    }
+
+    header,
+    sidebar,
+    contents,
+    footer {
+      text-align: center;
+    }
+    header {
+      width: 1200px;
+      height: 120px;
+      background-color: aqua;
+    }
+    sidebar {
+    }
+    .leftbar {
+      width: 250px;
+      height: 600px;
+      float: left;
+      background-color: beige;
+    }
+    .rightbar {
+      width: 150px;
+      height: 600px;
+      float: left;
+      background-color: blue;
+    }
+    contents {
+      width: 800px;
+      height: 600px;
+      float: left;
+      background-color: brown;
+    }
+    footer {
+      width: 1200px;
+      height: 100px;
+      clear: left;
+      background-color: chocolate;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <header>헤더</header>
+      <sidebar class="leftbar">사이드바</sidebar>
+      <contents>본문</contents>
+      <sidebar class="rightbar">사이드바</sidebar>
+      <footer>푸터</footer>
+    </div>
+  </body>
+</html>
