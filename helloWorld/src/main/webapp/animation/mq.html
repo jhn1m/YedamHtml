@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>animation/mq.html</title>
+    <style>
+      body {
+        background: url("../img/land.jpg");
+      }
+
+      @media print and (max-width: 1200px) {
+        /* 출력용 스타일 지정 */
+      }
+
+      @media screen and(max-width:1024px) {
+        body {
+          background: url("../img/city.jpg");
+        }
+      }
+
+      @media screen and (min-width: 860px) and (max-width: 1024px) {
+        body {
+          background: url("../img/hat.png");
+        }
+      }
+      @media screen and (max-width: 860px) {
+        body {
+          background: url("../img/product2.jpg");
+        }
+      }
+    </style>
+  </head>
+  <body></body>
+</html>
