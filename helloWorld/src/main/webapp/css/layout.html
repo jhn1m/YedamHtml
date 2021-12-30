@@ -1,219 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>css/layout.html</title>
-    <style>
-      * {
-        box-sizing: border-box;
-        font-size: 14px;
-        background-color: rgb(205, 209, 119);
-      }
-      header {
-        height: 50px;
-      }
 
-      header > ul {
-        list-style-type: none;
-        padding-left: 200px;
-      }
-
-      header li {
-        display: inline-block;
-        width: 23%;
-        margin: 20px 5px 15px;
-      }
-
-      a {
-        text-decoration: none;
-      }
-      nav {
-        width: 13%;
-        height: 60vh;
-        float: left;
-      }
-
-      #navbar {
-        font-size: 0.9em;
-        padding-left: 15px;
-        margin-top: 30px;
-      }
-
-      #navh {
-        padding-bottom: 5px;
-        margin-bottom: 10px;
-        width: 80%;
-      }
-
-      #navh:hover {
-        background-color: white;
-        color:black;
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>css/layout.html</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-size: 14px;
+      background-color: rgb(205, 209, 119);
     }
-nav a:hover{
-  background-color: white;
-  color:black;
-}
-      main {
-        width: 72%;
-        height: 60vh;
-        float: left;
-      }
 
-      #contentss{
-            width: 100%;
-            border-top: 1px solid black;
-            border-collapse: collapse;
-        }
+    header {
+      height: 50px;
+    }
 
-        #ttop, td{
-            border-bottom: 1px solid black;
-            padding:10px;
-        }
+    header>ul {
+      list-style-type: none;
+      padding-left: 200px;
+    }
 
-      aside {
-        width: 15%;
-        float: left;
-        height: 60vh;
-      }
+    header li {
+      display: inline-block;
+      width: 23%;
+      margin: 20px 5px 15px;
+    }
 
-      aside > ul {
-        list-style-type: none;
-      }
+    a {
+      text-decoration: none;
+    }
 
-      aside li {
-        color: thistle;
-      }
+    nav {
+      width: 13%;
+      height: 60vh;
+      float: left;
+    }
 
-      footer {
-        clear: both;
-        height: 10vh;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">게시판</a></li>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">로그인</a></li>
-      </ul>
-    </header>
-    <nav>
-      <table border="0" id="navbar">
+    #navbar {
+      font-size: 0.9em;
+      padding-left: 15px;
+      margin-top: 30px;
+    }
+
+    #navh {
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+      width: 80%;
+    }
+
+    #navh:hover {
+      background-color: white;
+      color: black;
+    }
+
+    nav a:hover {
+      background-color: white;
+      color: black;
+    }
+
+    main {
+      width: 72%;
+      height: 60vh;
+      float: left;
+    }
+
+    #contentss {
+      width: 100%;
+      border-top: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    #ttop,
+    td {
+      border-bottom: 1px solid black;
+      padding: 10px;
+    }
+
+    aside {
+      width: 15%;
+      float: left;
+      height: 60vh;
+    }
+
+    aside>ul {
+      list-style-type: none;
+    }
+
+    aside li {
+      color: thistle;
+    }
+
+    footer {
+      clear: both;
+      height: 10vh;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">게시판</a></li>
+      <li><a href="#">FAQ</a></li>
+      <li><a href="#">로그인</a></li>
+    </ul>
+  </header>
+  <nav>
+    <table border="0" id="navbar">
+      <tr>
+        <th id="navh"><a href="#">게시판 카테고리</a></th>
+      </tr>
+      <tr>
+        <th id="navh"><a href="#">자유 게시판</a></th>
+      </tr>
+      <tr>
+        <th id="navh"><a href="#">리뷰게시판</a></th>
+      </tr>
+      <tr>
+        <th id="navh"><a href="#">네이버 동영상 게시판</a></th>
+      </tr>
+      <tr></tr>
+      <th id="navh"><a href="#">자료실 게시판</a></th>
+      </tr>
+    </table>
+  </nav>
+  <main>
+    <table border="0" id="contentss">
+      <thead>
         <tr>
-          <th id="navh"><a href="#">게시판 카테고리</a></th>
-          </tr>
-          <tr><th id="navh"><a href="#">자유 게시판</a></th></tr>
-          <tr>
-          <th id="navh"><a href="#">리뷰게시판</a></th></tr>
-          <tr>
-          <th id="navh"><a href="#">네이버 동영상 게시판</a></th></tr>
-          <tr></tr>
-          <th id="navh"><a href="#">자료실 게시판</a></th>
+          <th id="ttop">No</th>
+          <th id="ttop">제목</th>
+          <th id="ttop">글쓴이</th>
+          <th id="ttop">작성시간</th>
+          <th id="ttop">좋아요</th>
         </tr>
-      </table>
-    </nav>
-    <main>
-      <table border="0" id="contentss">
-        <thead>
-          <tr>
-            <th id="ttop">No</th>
-            <th id="ttop">제목</th>
-            <th id="ttop">글쓴이</th>
-            <th id="ttop">작성시간</th>
-            <th id="ttop">좋아요</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>10</td>
-            <td>네이버 지도(v5)임베드</td>
-            <td class="gc">아임웹</td>
-            <td class="gc">2019-12-17</td>
-            <td class="gc">0</td>
-          </tr>
-          <tr>
-            <td>9</td>
-            <td>제목</td>
-            <td class="gc">아임웹</td>
-            <td class="gc">2019-12-16</td>
-            <td class="gc">0</td>
-          </tr>
-          <tr>
-            <td>8</td>
-            <td>구글 지도 게시물에 임베드 하기</td>
-            <td class="gc">아임웹</td>
-            <td class="gc">2019-12-16</td>
-            <td class="gc">0</td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td>아이폰 7 플러스</td>
-            <td class="gc">아임웹</td>
-            <td class="gc">2018-05-14</td>
-            <td class="gc">0</td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>부누이기 최고네요~!</td>
-            <td class="gc">아임웹</td>
-            <td class="gc">2018-04-17</td>
-            <td class="gc">0</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>진짜로 갑니다~~</td>
-            <td class="gc">아임웹</td>
-            <td class="gc">2018-04-17</td>
-            <td class="gc">0</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>탭 메뉴 이미지</td>
-            <td class="gc">아임웹</td>
-            <td class="gc">2017-12-06</td>
-            <td class="gc">0</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>응원합니다!</td>
-            <td class="gc">아임웹</td>
-            <td class="gc">2017-11-20</td>
-            <td class="gc">0</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>이번엔 가즈아아아아아아아!</td>
-            <td class="gc">아임웹</td>
-            <td class="gc">2017-11-20</td>
-            <td class="gc">0</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>제목만 보여주기!</td>
-            <td class="gc">아임웹</td>
-            <td class="gc">2017-11-20</td>
-            <td class="gc">0</td>
-          </tr>
-        </tbody>
-      </table>
-    </main>
-    <aside>
-      <ul>
-        디자인모드
-        <li><a href="#">빠른 시작 가이드</a></li>
-        <li><a href="#">디자인 모드란?</a></li>
-        <li><a href="#">아엠 페이지 구조</a></li>
-        <li><a href="#">공통 디자인 등록</a></li>
-      </ul>
-    </aside>
-    <footer>
-      <p>상호명 : (주)아임웹 | 대표이사 : 이수모</p>
-      <p>본사 : 서울특별시 서대문구 성산로7길 89-8</p>
-      <p>고객지원 : 문의 게시판 또는 실시간 채팅</p>
-    </footer>
-  </body>
+      </thead>
+      <tbody>
+        <tr>
+          <td>10</td>
+          <td>네이버 지도(v5)임베드</td>
+          <td class="gc">아임웹</td>
+          <td class="gc">2019-12-17</td>
+          <td class="gc">0</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>제목</td>
+          <td class="gc">아임웹</td>
+          <td class="gc">2019-12-16</td>
+          <td class="gc">0</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>구글 지도 게시물에 임베드 하기</td>
+          <td class="gc">아임웹</td>
+          <td class="gc">2019-12-16</td>
+          <td class="gc">0</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>아이폰 7 플러스</td>
+          <td class="gc">아임웹</td>
+          <td class="gc">2018-05-14</td>
+          <td class="gc">0</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>부누이기 최고네요~!</td>
+          <td class="gc">아임웹</td>
+          <td class="gc">2018-04-17</td>
+          <td class="gc">0</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>진짜로 갑니다~~</td>
+          <td class="gc">아임웹</td>
+          <td class="gc">2018-04-17</td>
+          <td class="gc">0</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>탭 메뉴 이미지</td>
+          <td class="gc">아임웹</td>
+          <td class="gc">2017-12-06</td>
+          <td class="gc">0</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>응원합니다!</td>
+          <td class="gc">아임웹</td>
+          <td class="gc">2017-11-20</td>
+          <td class="gc">0</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>이번엔 가즈아아아아아아아!</td>
+          <td class="gc">아임웹</td>
+          <td class="gc">2017-11-20</td>
+          <td class="gc">0</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>제목만 보여주기!</td>
+          <td class="gc">아임웹</td>
+          <td class="gc">2017-11-20</td>
+          <td class="gc">0</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+  <aside>
+    <ul>
+      디자인모드
+      <li><a href="#">빠른 시작 가이드</a></li>
+      <li><a href="#">디자인 모드란?</a></li>
+      <li><a href="#">아엠 페이지 구조</a></li>
+      <li><a href="#">공통 디자인 등록</a></li>
+    </ul>
+  </aside>
+  <footer>
+    <p>상호명 : (주)아임웹 | 대표이사 : 이수모</p>
+    <p>본사 : 서울특별시 서대문구 성산로7길 89-8</p>
+    <p>고객지원 : 문의 게시판 또는 실시간 채팅</p>
+  </footer>
+</body>
+
 </html>
