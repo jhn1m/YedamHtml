@@ -1,83 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>selector_pseudo.html</title>
+    <style>
+      a:link {
+        text-decoration: none;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>selector_pseudo.html</title>
-  <style>
-    a:link {
-      text-decoration: none;
-    }
+      a:visited {
+        color: green;
+      }
 
-    a:visited {
-      color: green;
-    }
+      a:hover {
+        color: pink;
+        background-color: royalblue;
+      }
 
-    a:hover {
-      color: pink;
-      background-color: royalblue;
-    }
+      a:active {
+        background-color: yellow;
+        color: blue;
+      }
 
-    a:active {
-      background-color: yellow;
-      color: blue;
-    }
+      input:focus {
+        background-color: red;
+        color: white;
+      }
 
-    input:focus {
-      background-color: red;
-      color: white;
-    }
+      li:first-child {
+        background-color: chocolate;
+      }
 
-    li:first-child {
-      background-color: chocolate;
-    }
+      li:last-child {
+        background-color: darkgreen;
+      }
 
-    li:last-child {
-      background-color: darkgreen;
-    }
+      li:nth-child(2) {
+        font-size: 1.3em;
+      }
 
-    li:nth-child(2) {
-      font-size: 1.3em;
-    }
+      li:only-child {
+        font-size: 1.3em;
+        color: tomato;
+      }
+    </style>
+  </head>
 
-    li:only-child {
-      font-size: 1.3em;
-      color: tomato;
-    }
-  </style>
-</head>
-
-<body>
-  <h1>home</h1>
-  <nav class="navi">
-    <ul>
-      <li><a href="#">이용안내</a></li>
-      <li><a href="#navi">객실 소개</a></li>
-      <h3>손님예약하기</h3>
-      <li><a href="#">예약 방법 및 요금</a></li>
-      <li><a href="#">예약하기</a></li>
-      <input type="text" name="" placeholder="가상선택자" />
-    </ul>
-  </nav>
-  <div style="height: 800px">
-    <nav id="navi">
+  <body>
+    <h1>home</h1>
+    <nav class="navi">
       <ul>
-        <li>2인실</li>
-        <li>3인실</li>
-        <li>4인실</li>
-        <li>가족실</li>
+        <li><a href="#">이용안내</a></li>
+        <li><a href="#navi">객실 소개</a></li>
+        <h3>손님예약하기</h3>
+        <li><a href="#">예약 방법 및 요금</a></li>
+        <li><a href="#">예약하기</a></li>
+        <input type="text" name="" placeholder="가상선택자" />
       </ul>
     </nav>
-    <nav>
-      <ul>
-        <li>기타</li>
-        <li>기타2</li>
-      </ul>
-    </nav>
-    <div style="height: 800px"></div>
-  </div>
-</body>
-
+    <div style="height: 800px">
+      <nav id="navi">
+        <ul>
+          <li>2인실</li>
+          <li>3인실</li>
+          <li>4인실</li>
+          <li>가족실</li>
+        </ul>
+      </nav>
+      <nav>
+        <ul>
+          <li>기타</li>
+          <li>기타2</li>
+        </ul>
+      </nav>
+      <div style="height: 800px"></div>
+    </div>
+  </body>
 </html>

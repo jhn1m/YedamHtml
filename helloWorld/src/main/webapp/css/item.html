@@ -1,175 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        margin: 20px auto;
+        width: 1000px;
+        height: 1500px;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <style>
-    .container {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      margin: 20px auto;
-      width: 1000px;
-      height: 1500px;
-    }
+      .header {
+        float: left;
+        width: 1000px;
+        height: 100px;
+        margin: 10px;
+      }
 
-    .header {
-      float: left;
-      width: 1000px;
-      height: 100px;
-      margin: 10px;
-    }
+      .image {
+        float: left;
+        height: 410px;
+      }
 
-    .image {
-      float: left;
-      height: 410px;
-    }
+      .info {
+        float: right;
+        width: 500px;
+      }
 
-    .info {
-      float: right;
-      width: 500px;
-    }
+      .btn {
+        float: right;
+      }
 
-    .btn {
-      float: right;
-    }
+      .leftinfo {
+        float: left;
+        width: 100px;
+        text-align: left;
+        list-style: none;
+      }
 
-    .leftinfo {
-      float: left;
-      width: 100px;
-      text-align: left;
-      list-style: none;
-    }
+      .leftinfo_ul {
+        padding: 0;
+        margin: 0;
+      }
 
-    .leftinfo_ul {
-      padding: 0;
-      margin: 0;
-    }
+      .leftinfo_li {
+        font-size: 0.9em;
+        margin-bottom: 5px;
+        list-style: none;
+        font-weight: bold;
+      }
 
-    .leftinfo_li {
-      font-size: 0.9em;
-      margin-bottom: 5px;
-      list-style: none;
-      font-weight: bold;
-    }
+      .rightinfo {
+        float: left;
+        text-align: left;
+        list-style: none;
+      }
 
-    .rightinfo {
-      float: left;
-      text-align: left;
-      list-style: none;
-    }
+      .rightinfo_ul {
+        margin: 0;
+        padding: 0;
+      }
 
-    .rightinfo_ul {
-      margin: 0;
-      padding: 0;
-    }
+      .rightinfo_li {
+        font-size: 0.9em;
+        margin-bottom: 5px;
+        list-style: none;
+      }
 
-    .rightinfo_li {
-      font-size: 0.9em;
-      margin-bottom: 5px;
-      list-style: none;
-    }
+      .color_sel {
+        float: right;
+        height: 80px;
+        width: 500px;
+      }
 
-    .color_sel {
-      float: right;
-      height: 80px;
-      width: 500px;
-    }
+      .select_btn {
+        float: right;
+        width: 400px;
+      }
 
-    .select_btn {
-      float: right;
-      width: 400px;
-    }
+      .login_btn_container {
+        float: right;
+        width: 500px;
+        height: 100px;
+      }
 
-    .login_btn_container {
-      float: right;
-      width: 500px;
-      height: 100px;
-    }
+      .login_btn {
+        width: 260px;
+        height: 50px;
+        margin: auto;
+        display: block;
+        background-color: rgba(114, 111, 111, 0.66);
+        color: white;
+        border: 0;
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+    </style>
+  </head>
 
-    .login_btn {
-      width: 260px;
-      height: 50px;
-      margin: auto;
-      display: block;
-      background-color: rgba(114, 111, 111, 0.66);
-      color: white;
-      border: 0;
-      font-size: 1.2em;
-      font-weight: bold;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="container">
-    <div class="header">
-      <p>
-        홈 >
-        <select></select>
-        >
-        <select></select>
-      </p>
-    </div>
-    <div class="image">
-      <img src="../img/hat.png" alt="sample" width="400px" />
-    </div>
-    <div class="info">
-      <div>
-        <h3>
-          (Y) 71421-CL 사이드메쉬포인트볼캡
-          <input class="btn" type="button" value="공유 >" />
-        </h3>
+  <body>
+    <div class="container">
+      <div class="header">
+        <p>
+          홈 >
+          <select></select>
+          >
+          <select></select>
+        </p>
       </div>
-      <hr />
-      <div class="leftinfo">
-        <ul class="leftinfo_ul">
-          <li class="leftinfo_li">판매가</li>
-          <li class="leftinfo_li">구매제한</li>
-          <li class="leftinfo_li">
-            배송비
-            <p><br /></p>
-          </li>
-          <li class="leftinfo_li">상품코드</li>
-          <li class="leftinfo_li">원산지</li>
-          <li class="leftinfo_li">샘플가격</li>
-          <li class="leftinfo_li">결제수단</li>
-          <li class="leftinfo_li">VAT</li>
-        </ul>
+      <div class="image">
+        <img src="../img/hat.png" alt="sample" width="400px" />
       </div>
-      <div class="rightinfo">
-        <ul class="rightinfo_ul">
-          <li class="rightinfo_li">4000원</li>
-          <li class="rightinfo_li">최소 1개</li>
-          <li class="rightinfo_li">
-            2,500원
-            <p>택배 / 주문시결제(선결제)</p>
-          </li>
-          <li class="rightinfo_li"></li>
-          <li class="rightinfo_li">1000000078</li>
-          <li class="rightinfo_li">made in china</li>
-          <li class="rightinfo_li">샘플(1개) 구매가능</li>
-          <li class="rightinfo_li">무통장입금, 신용카드, 실시간계좌이체</li>
-          <li class="rightinfo_li">10% 별도</li>
-        </ul>
+      <div class="info">
+        <div>
+          <h3>
+            (Y) 71421-CL 사이드메쉬포인트볼캡
+            <input class="btn" type="button" value="공유 >" />
+          </h3>
+        </div>
+        <hr />
+        <div class="leftinfo">
+          <ul class="leftinfo_ul">
+            <li class="leftinfo_li">판매가</li>
+            <li class="leftinfo_li">구매제한</li>
+            <li class="leftinfo_li">
+              배송비
+              <p><br /></p>
+            </li>
+            <li class="leftinfo_li">상품코드</li>
+            <li class="leftinfo_li">원산지</li>
+            <li class="leftinfo_li">샘플가격</li>
+            <li class="leftinfo_li">결제수단</li>
+            <li class="leftinfo_li">VAT</li>
+          </ul>
+        </div>
+        <div class="rightinfo">
+          <ul class="rightinfo_ul">
+            <li class="rightinfo_li">4000원</li>
+            <li class="rightinfo_li">최소 1개</li>
+            <li class="rightinfo_li">
+              2,500원
+              <p>택배 / 주문시결제(선결제)</p>
+            </li>
+            <li class="rightinfo_li"></li>
+            <li class="rightinfo_li">1000000078</li>
+            <li class="rightinfo_li">made in china</li>
+            <li class="rightinfo_li">샘플(1개) 구매가능</li>
+            <li class="rightinfo_li">무통장입금, 신용카드, 실시간계좌이체</li>
+            <li class="rightinfo_li">10% 별도</li>
+          </ul>
+        </div>
+      </div>
+      <div class="color_sel">
+        <hr />
+        <p>
+          색상(color)<select class="select_btn">
+            <option value="" disabled selected>= 옵션 : 가격 =</option>
+          </select>
+        </p>
+        <hr />
+      </div>
+      <div class="login_btn_container">
+        <button class="login_btn">로그인 후 구매</button>
       </div>
     </div>
-    <div class="color_sel">
-      <hr />
-      <p>
-        색상(color)<select class="select_btn">
-          <option value="" disabled selected>= 옵션 : 가격 =</option>
-        </select>
-      </p>
-      <hr />
-    </div>
-    <div class="login_btn_container">
-      <button class="login_btn">로그인 후 구매</button>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
