@@ -5,6 +5,104 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>html/board_register.html</title>
+    <style>
+      #container {
+        width: 600px;
+        height: 600px;
+        margin: 10px auto;
+      }
+
+      #container label {
+        float: left;
+        width: 110px;
+      }
+
+      #container li {
+        list-style-type: none;
+      }
+
+      #container p {
+        font-size: 0.8em;
+      }
+
+      #main #input1 {
+        width: 53%;
+      }
+
+      #main #input2 {
+        width: 53%;
+        height: 150px;
+      }
+
+      #firstline {
+        border: 1px solid blue;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <form id="container">
+      <div id="header">
+        <hr id="firstline" />
+        <ul>
+          <li>
+            <label>분야</label>
+            <select name="field">
+              <option value="">기타</option>
+              <option value="">문의사항</option>
+              <option value="">게임</option>
+              <option value="">영화</option>
+            </select>
+          </li>
+        </ul>
+        <hr id="firstline" />
+      </div>
+
+      <div id="main">
+        <ul>
+          <li>
+            <label>제목</label>
+            <input
+              id="input1"
+              type="text"
+              placeholder="게시판에 사진(이미지)올리는 방법"
+            />
+          </li>
+        </ul>
+        <hr />
+        <ul>
+          <li>
+            <label>작성자</label>
+            <p>엔씨소프트문화재단</p>
+          </li>
+        </ul>
+        <hr />
+        <ul>
+          <li>
+            <label id="asd">내용</label>
+            <input
+              id="input2"
+              type="text"
+              placeholder="'글쓰기'를 누르시면 위와 같은 화면이 뜹니다."
+            />
+          </li>
+        </ul>
+        <hr />
+
+        <ul>
+          <li>
+            <label>첨부파일</label>
+            <input type="file" />
+          </li>
+        </ul>
+        <hr />
+        <ul>
+          <li>
+            <label>이미지</label>
+            <input type="file" />
+          </li>
+        </ul>
+        <hr />
+      </div>
+    </form>
+  </body>
 </html>

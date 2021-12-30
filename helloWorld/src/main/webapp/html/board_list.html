@@ -5,6 +5,208 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>html/board_list.html</title>
+    <style>
+      #container {
+        width: 1000px;
+        height: 600px;
+        margin: 20px auto;
+        border: 1px solid black;
+      }
+
+      #container #header {
+        width: auto;
+        height: 50px;
+
+        background-color: rgba(51, 51, 51, 0.801);
+      }
+
+      #header > p {
+        float: left;
+        color: white;
+        font-weight: bold;
+        margin-left: 20px;
+      }
+
+      #header > a {
+        float: right;
+        margin: 16px;
+        text-decoration: none;
+      }
+
+      #header > a:hover {
+        color: white;
+      }
+
+      #header > a:link {
+        color: white;
+      }
+
+      #header > a:visited {
+        color: rgba(255, 255, 255, 0.287);
+      }
+
+      #nav {
+        float: left;
+        width: 200px;
+        height: 650px;
+        margin-right: 5px;
+      }
+
+      #nav > h1 {
+        text-align: center;
+      }
+
+      #nav > ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 20px;
+        text-align: center;
+      }
+
+      #nav a {
+        display: block;
+        padding: 10px;
+        border: 1px solid black;
+        border-radius: 3px;
+        text-decoration: none;
+      }
+
+      #nav a:hover {
+        font-weight: bold;
+        background-color: rgba(127, 255, 212, 0.363);
+      }
+
+      #content {
+        float: left;
+        width: 790px;
+        height: 540px;
+
+        border: 1px solid black;
+        border-radius: 5px;
+      }
+
+      #contents {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      #ttop,
+      td {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.172);
+        padding: 10px;
+      }
+
+      tr:hover {
+        background-color: rgba(0, 0, 0, 0.144);
+      }
+
+      .btn {
+        caption-side: bottom;
+        width: 80px;
+        padding: 5px;
+        border: 0;
+        border-radius: 5px;
+        margin-top: 40px;
+        margin-left: 10px;
+        float: left;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.253);
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div id="container">
+      <div id="header">
+        <p>TEST PAGE</p>
+        <a id="heada" href="#">회원정보</a>
+        <a id="heada" href="#">로그아웃</a>
+        <a id="heada" href="#">홈</a>
+      </div>
+      <div id="nav">
+        <h1>Category</h1>
+        <ul>
+          <li><a href="#">게시판</a></li>
+          <li><a href="#">일반게시판</a></li>
+          <li><a href="#">코딩게시판</a></li>
+        </ul>
+      </div>
+      <div id="content">
+        <table border="0" id="contents">
+          <thead>
+            <tr>
+              <th id="ttop">제목</th>
+              <th id="ttop">글쓴이</th>
+              <th id="ttop">작성일</th>
+              <th id="ttop">조회수</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td id="tcon">안녕하세요!</td>
+              <td id="tcon">admin</td>
+              <td id="tcon">2020/03/02 11:03:47</td>
+              <td id="tcon">0</td>
+            </tr>
+            <tr>
+              <td id="tcon">ㅇㅇㅇ</td>
+              <td id="tcon">admin</td>
+              <td id="tcon">2020/03/01 23:40:01</td>
+              <td id="tcon">1</td>
+            </tr>
+            <tr>
+              <td id="tcon">이제 되겠지..!</td>
+              <td id="tcon">admin</td>
+              <td id="tcon">2020/03/01 23:38:40</td>
+              <td id="tcon">2</td>
+            </tr>
+            <tr>
+              <td id="tcon">re: 답글을 써보자!</td>
+              <td id="tcon">admin</td>
+              <td id="tcon">2020/03/02 11:04:01</td>
+              <td id="tcon">0</td>
+            </tr>
+            <tr>
+              <td id="tcon">다시</td>
+              <td id="tcon">admin</td>
+              <td id="tcon">2020/03/01 23:38:04</td>
+              <td id="tcon">2</td>
+            </tr>
+            <tr>
+              <td id="tcon">re: 안뇽안뇽</td>
+              <td id="tcon">admin</td>
+              <td id="tcon">2020/03/02 11:04:15</td>
+              <td id="tcon">1</td>
+            </tr>
+            <tr>
+              <td id="tcon">re: 나도 안뇽</td>
+              <td id="tcon">admin</td>
+              <td id="tcon">2020/03/02 11:04:28</td>
+              <td id="tcon">1</td>
+            </tr>
+            <tr>
+              <td id="tcon">re: 잘 지내뉴</td>
+              <td id="tcon">admin</td>
+              <td id="tcon">2020/03/02 11:04:39</td>
+              <td id="tcon">0</td>
+            </tr>
+            <tr>
+              <td id="tcon">잘되는지 확인해보자</td>
+              <td id="tcon">admin</td>
+              <td id="tcon">2020/03/01 23:22:07</td>
+              <td id="tcon">3</td>
+            </tr>
+            <tr>
+              <td id="tcon">여기도 잘 됩니까!</td>
+              <td id="tcon">admin</td>
+              <td id="tcon">2020/03/02 11:04:52</td>
+              <td id="tcon">0</td>
+            </tr>
+          </tbody>
+          <tfoot></tfoot>
+        </table>
+        <input type="submit" class="btn" value="새글쓰기" />
+      </div>
+    </div>
+  </body>
 </html>
