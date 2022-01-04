@@ -1,5 +1,8 @@
 // basic.js
 
+// 선언되지 않은 변수를 체크해주는 구문
+'use strict';
+
 var v1;
 var name1 = "Hong";
 v1 = "FIRST world";
@@ -34,17 +37,21 @@ str += "</ul>";
 
 // var 변수선언
 var num1 = 10;
-
+// var이 없어도 선언은 가능하나 오류를 유발할 수 있음
+var num3 = 30; 
 console.log("DECLAIRE num1 : " + num1);
 
 function f1() {
-    var num1 = 20;
+    num1 = 20;
+    num3 = 40;
     console.log("FUNC num1 : " + num1);
+    console.log("FUNC num3 : " + num3);
 }
 
 f1();
 
 console.log("FINAL num1 : " + num1); // function이 끝나면 값이 초기화 됨
+console.log("FINAL num3 : " + num3);
 
 console.log(v1);
 console.log(typeof v1); 
