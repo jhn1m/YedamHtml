@@ -5,16 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>javascript/index.html</title>
+    <style>
+      #tbl > thead > tr {
+        background-color: cornflowerblue;
+      }
+
+      #tbl > tbody > tr:nth-child(2n) {
+        background-color: yellow;
+      }
+      #tbl > tbody > tr:nth-child(2n + 1) {
+        background-color: brown;
+      }
+    </style>
   </head>
   <body>
-    <!-- <script>
+    <script>
       console.log("hello, world!")
       document.write("<h2>hello, world!</h2>")
       //   window.alert("hello, world")
-    </script> -->
+    </script>
 
     <!-- <script src="basic.js"></script>
     <script src="basic2.js"></script> -->
-    <script src="basic3.js"></script>
+    <!-- <script src="basic3.js"></script> -->
+    <script src="operator.js"></script>
   </body>
 </html>
