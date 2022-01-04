@@ -32,6 +32,19 @@ str += "<li>Banana</li>";
 str += "<li>Cherry</li>";
 str += "</ul>";
 
+// var 변수선언
+var num1 = 10;
+
+console.log("DECLAIRE num1 : " + num1);
+
+function f1() {
+    var num1 = 20;
+    console.log("FUNC num1 : " + num1);
+}
+
+f1();
+
+console.log("FINAL num1 : " + num1); // function이 끝나면 값이 초기화 됨
 
 console.log(v1);
 console.log(typeof v1); 
