@@ -70,14 +70,23 @@ var student3 = {
 var students = [student1, student2, student3]
 
 str = ""
-str += "<table>"
-
+str += '<table border = "1">'
+str += "<thead><tr>"
+for (var field in student1) {
+  str += `<th>${field}</th>`
+}
+str += "</tr></thead>"
+str += "<tbody>"
 for (var i = 0; i < students.length; i++) {
   var field = "score"
   console.log(`${i + 1}번째 name => ${students[i].name}`)
   console.log(`${i + 1}번째 age => ${students[i]["age"]}`)
   console.log(`${i + 1}번째 score => ${students[i].score}`)
+  str += "<tr>"
+  for (var field in student1) {
+    str += `<td>${students[i][field]}</td>`
+  }
+  str += "</tr>"
 }
-
-str += "</table>"
+str += "</tbody></table>"
 document.write(str)
