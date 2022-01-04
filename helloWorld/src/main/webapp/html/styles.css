@@ -12,19 +12,24 @@ li {
   margin: 20px auto;
 }
 
+#header {
+  width: auto;
+  height: 80px;
+}
+
 .nav {
   float: left;
-  margin: 10px auto;
+  margin: 20px auto;
   list-style: none;
-  width: 1100px;
+  width: 1150px;
   height: 75px;
 }
 
 .nav .navbar {
   float: left;
-  border-top: 1px solid #929292;
   border-bottom: 1px solid #929292;
   padding: 0;
+  margin: 10px auto;
 }
 
 .nav .navbar a:link {
@@ -92,8 +97,10 @@ li {
   color: black;
 }
 
-#nav .navbar2 a:visited {
+a:visited,
+a:link {
   color: black;
+  text-decoration: none;
 }
 
 #nav .arrow {
@@ -118,9 +125,16 @@ li {
 
 #main .mainpic {
   padding-right: 15px;
+  margin-right: 10px;
   float: right;
   width: 25px;
   height: 25px;
+}
+
+#top {
+  width: 900px;
+  height: 70px;
+  float: left;
 }
 
 #search {
