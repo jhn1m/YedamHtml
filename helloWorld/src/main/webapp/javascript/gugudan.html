@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>javascript/gugudan.html</title>
+    <style>
+      div {
+        display: inline-block;
+        border: 1px solid gray;
+        padding: 5px;
+        margin: 5px;
+      }
+
+      h3 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      "use strict"
+      for (var i = 1; i <= 9; i++) {
+        console.log(`${i} 단`)
+        document.write("<div>")
+        document.write(`<h3>${i}단</h3>`)
+        for (var j = 1; j <= 9; j++) {
+          console.log(`${i} * ${j} = ${i * j}`)
+          document.write(`<p>${i} * ${j} = ${i * j}</p>`)
+        }
+        document.write("</div>")
+      }
+    </script>
+  </body>
+</html>
