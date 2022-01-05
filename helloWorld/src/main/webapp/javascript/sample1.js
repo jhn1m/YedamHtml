@@ -4,7 +4,7 @@ var memNum = window.prompt("입장객은 몇명?")
 var colNum = window.prompt("한 줄에 앉을 사람?")
 
 // 56명, 5명씩
-
+document.write(`<div id = "chair">`)
 document.write(`입장객은 ${memNum}명 입니다.`)
 document.write(`한 줄에 ${colNum}명씩 앉아주세요.`)
 document.write(`<br>`)
@@ -17,7 +17,7 @@ for (var i = 1; i <= memNum; i++) {
     }
   }
 }
-
+document.write("</div>")
 // 교수님 풀이
 // memNum / colNum = 나눈 값이 라인의 수
 /*
