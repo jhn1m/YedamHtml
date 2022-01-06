@@ -66,7 +66,40 @@ let str1 = "hello",
 console.log(str.concat(" ", str2, "!!"))
 
 let str3 = str1.concat(" ", str2, "!!")
+console.log(str3)
 
 let pos = str3.charAt("w")
-
 console.log(pos)
+
+let ary = str3.split(" ")
+for (let str of ary) {
+  console.log(str)
+}
+
+let temp =
+  "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat, sint quo, consequuntur saepe beatae dolor fugit similique quasi odit veritatis numquam doloribus minus cupiditate laboriosam cum totam quos repellendus eaque."
+let tempAry = temp.split(" ")
+console.log(tempAry.length)
+
+let fruits = "Apple Banana Cherry Melon"
+let fruit = prompt("과일 입력 : ")
+
+// 검색 비슷한 기능
+function getLoc(fruit) {
+  if (!fruit) {
+    return
+  }
+  let temp = fruits.split(" ")
+  let cnt = 0
+  for (let i = 0; i < temp.length; i++) {
+    if (temp[i].toUpperCase() == fruit.toUpperCase()) {
+      cnt = i + 1
+    }
+  }
+  if (cnt == 0) {
+    return "만족하는 값이 없습니다."
+  }
+  return cnt + "번째"
+}
+
+console.log(getLoc(fruit))
