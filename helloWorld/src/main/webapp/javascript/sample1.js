@@ -17,6 +17,7 @@ for (var i = 1; i <= memNum; i++) {
     }
   }
 }
+
 document.write("</div>")
 // 교수님 풀이
 // memNum / colNum = 나눈 값이 라인의 수
