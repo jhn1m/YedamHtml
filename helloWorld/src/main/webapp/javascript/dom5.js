@@ -129,3 +129,22 @@ function delCallback() {
     }
   }
 }
+
+// 리스트 > 입력화면에 보여주기.
+let names = document.querySelectorAll("table tbody tr td:nth-child(2)")
+for (let i = 0; i < names.length; i++) {
+  names[i].addEventListener("click", showInfo)
+  function showInfo() {
+    let parent = names[0].parentNode
+    document.querySelector("input[name='name']").value =
+      names[i].parentNode.childNodes[1].innerText
+    document.querySelector("input[name='phone']").value =
+      names[i].parentNode.childNodes[2].innerText
+    document.querySelector("input[name='addr']").value =
+      names[i].parentNode.childNodes[3].innerText
+    document.querySelector("input[name='email']").value =
+      names[i].parentNode.childNodes[4].innerText
+  }
+}
+
+console.log(parent)
