@@ -1,5 +1,7 @@
 // dom5.js
 
+"use strict"
+
 const data = [
   {
     name: "Kim",
@@ -30,6 +32,7 @@ function makeHead() {
   let td = document.createElement("td")
   let checkbox = document.createElement("input")
   checkbox.setAttribute("type", "checkbox")
+  checkbox.addEventListener("click", allCheckFnc)
   td.appendChild(checkbox)
   tr.appendChild(td)
 
@@ -44,6 +47,15 @@ function makeHead() {
   return thd
 }
 
+function allCheckFnc() {
+  // tbody쪽 checkbox 찾아서 checked == true
+  let findChk = document.querySelectorAll("tbody input[type = 'checkbox']")
+  for (let i = 0; i < findChk.length; i++) {
+    findChk[i].checked = this.checked
+  }
+}
+
+// tbody 영역
 function makeBody() {
   let tbd = document.createElement("tbody")
   data.forEach(function (obj) {
@@ -111,9 +123,9 @@ delBtn.addEventListener("click", delCallback)
 
 function delCallback() {
   let chks = document.querySelectorAll("tbody input[type = 'checkbox']")
-    for (let i = 0; i < chks.length; i++){
-        if (chks[i].checked == true) {
-            
-        }
+  for (let i = 0; i < chks.length; i++) {
+    if (chks[i].checked == true) {
+      chks[i].parentNode.parentNode.remove()
     }
+  }
 }
