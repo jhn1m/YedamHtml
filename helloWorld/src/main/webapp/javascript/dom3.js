@@ -11,10 +11,15 @@ document.getElementById("bdy").appendChild(div)
 let input = document.createElement("input")
 input.setAttribute("type", "text")
 input.setAttribute("value", "test")
+document.getElementById("bdy").appendChild(input)
 console.log(input)
 
 let delBtn = document.createElement("button")
+delBtn.append("삭제")
 let addBtn = document.createElement("button")
+addBtn.append("추가")
+document.getElementById("bdy").appendChild(delBtn)
+document.getElementById("bdy").appendChild(addBtn)
 console.log(delBtn)
 console.log(addBtn)
 
@@ -30,4 +35,5 @@ function nameAdd(item) {
   ul.appendChild(li)
 }
 
+document.getElementById("bdy").appendChild(ul)
 console.log(ul)
