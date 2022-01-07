@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css" />
 
     <style>
-      div:not(#show) {
+      /* div:not(#show) {
         display: inline-block;
         width: 100px;
         height: 100px;
@@ -18,6 +18,58 @@
         font-size: 30px;
         text-align: center;
         line-height: 100px;
+      } */
+
+      #add {
+        width: 70%;
+        border: 1px solid black;
+        margin: 5px;
+        padding: 10px;
+        float: left;
+      }
+
+      .row {
+        margin: 5px 10px;
+      }
+
+      .row > label {
+        display: inline-block;
+        width: 15%;
+      }
+
+      .row > input {
+        display: inline-block;
+        width: 75%;
+      }
+
+      #btn {
+        width: 20%;
+        height: 137px;
+        margin: 5px;
+        float: left;
+      }
+
+      #btn > button {
+        margin-top: 60px;
+        width: 100px;
+      }
+
+      #list {
+        border: 1px solid red;
+        float: left;
+        width: 88%;
+        height: 350px;
+        margin-left: 5px;
+      }
+
+      #list table {
+        width: 95%;
+        margin: 5px auto;
+      }
+
+      th,
+      td {
+        padding: 5px;
       }
     </style>
     <!-- <script src="basic.js"></script> -->
@@ -42,8 +94,35 @@
     <!-- <script src="example2.js"></script> -->
     <!-- <script src="dom1.js"></script> -->
     <!-- <script src="dom2.js"></script> -->
+    <!-- <script src="dom3.js"></script> -->
+    <!-- <script src="dom4.js"></script> -->
   </head>
   <body id="bdy">
+    <div id="show">
+      <div id="add">
+        <div class="row">
+          <label for="">이름</label>
+          <input type="text" name="name" />
+        </div>
+        <div class="row">
+          <label for="">연락처</label>
+          <input type="text" name="phone" />
+        </div>
+        <div class="row">
+          <label for="">주소</label>
+          <input type="text" name="addr" />
+        </div>
+        <div class="row">
+          <label for="">이메일</label>
+          <input type="text" name="email" />
+        </div>
+      </div>
+      <div id="btn">
+        <button>등록</button>
+      </div>
+      <div id="list"></div>
+    </div>
+    <script src="dom5.js"></script>
     <!-- <div id="show"></div>
     <input type="text" id="sname" />
     <button id="delBtn">조회삭제</button>
@@ -56,7 +135,6 @@
       <li>이</li>
       <li>박</li>
     </ul> -->
-    <script src="dom3.js"></script>
     <!-- <ul>
       <li>23</li>
       <li>17</li>
