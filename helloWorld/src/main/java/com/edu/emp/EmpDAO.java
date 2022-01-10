@@ -7,31 +7,31 @@ import java.util.List;
 import com.edu.common.DAO;
 
 public class EmpDAO extends DAO {
-	
-	public List<EmployeeVO> getEmpList(){
+
+	public List<EmployeeVO> getEmpList() {
 		List<EmployeeVO> list = new ArrayList<EmployeeVO>();
 		try {
 			connect();
 			String select = "SELECT * FROM emp_temp ORDER BY 1";
 			pstmt = conn.prepareStatement(select);
 			rs = pstmt.executeQuery();
-			if(rs.isBeforeFirst()) {
-				while(rs.next()) {
+			if (rs.isBeforeFirst()) {
+				while (rs.next()) {
 					EmployeeVO emp = new EmployeeVO();
 					emp.setEmployeeId(rs.getInt("employee_id"));
 					emp.setFirstName(rs.getString("first_name"));
 					emp.setLastName(rs.getString("last_name"));
 					emp.setEmail(rs.getString("email"));
-					emp.setHireDate(rs.getString("hire_date"));
+					emp.setHireDate(rs.getString("hire_date").substring(0, 10));
 					emp.setJobId(rs.getString("job_id"));
 					emp.setSalary(rs.getInt("salary"));
-					
+
 					list.add(emp);
 				}
 			} else {
 				System.out.println("자료가 없습니다.");
 			}
-		} catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconnect();
@@ -65,8 +65,29 @@ public class EmpDAO extends DAO {
 
 		return null;
 	}
-	
-	//입력 값을 gn, ln, em, hd, ji, sa
+
+	// 시퀀스를 사용하지 않기 위함
+	public void insertEmployee(EmployeeVO vo) {
+		String sql = "insert into emp_temp(employee_id, first_name, last_name, salary, email, hire_date, job_id) values(?, ?, ?, ?, ?, ?, ?)";
+		connect();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, vo.getEmployeeId());
+			pstmt.setString(2, vo.getFirstName());
+			pstmt.setString(3, vo.getLastName());
+			pstmt.setInt(4, vo.getSalary());
+			pstmt.setString(5, vo.getEmail());
+			pstmt.setString(6, vo.getHireDate());
+			pstmt.setString(7, "IT_PROG");
+			int r = pstmt.executeUpdate();
+			System.out.println(r + "건 입력되었습니다.");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	// 입력 값을 gn, ln, em, hd, ji, sa
+	// 한 건 입력.
 	public void insertEmp(EmployeeVO emp) {
 		try {
 			connect();
@@ -80,15 +101,15 @@ public class EmpDAO extends DAO {
 			pstmt.setString(5, emp.getJobId());
 			pstmt.setInt(6, emp.getSalary());
 			int r = pstmt.executeUpdate();
-			System.out.println(r+"건 입력");
-		} catch(SQLException e) {
+			System.out.println(r + "건 입력");
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconnect();
 		}
-		
+
 	}
-	
+
 	public void updateEmp(EmployeeVO emp) {
 		try {
 			connect();
@@ -99,14 +120,14 @@ public class EmpDAO extends DAO {
 			pstmt.setString(3, emp.getEmail());
 			pstmt.setInt(4, emp.getEmployeeId());
 			int r = pstmt.executeUpdate();
-			System.out.println(r+"건 수정");
-		} catch(SQLException e) {
+			System.out.println(r + "건 수정");
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconnect();
 		}
 	}
-	
+
 	public void deleteEmp(int empId) {
 		try {
 			connect();
@@ -114,8 +135,8 @@ public class EmpDAO extends DAO {
 			pstmt = conn.prepareStatement(delete);
 			pstmt.setInt(1, empId);
 			int r = pstmt.executeUpdate();
-			System.out.println(r+"건 삭제");
-		} catch(SQLException e) {
+			System.out.println(r + "건 삭제");
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconnect();

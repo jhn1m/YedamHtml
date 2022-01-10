@@ -53,7 +53,7 @@ function allCheckFnc() {
 }
 
 // tbody 영역
-function makeBody() {
+function makeBody(data) {
   let tbd = document.createElement("tbody")
   data.forEach(function (obj) {
     tbd.appendChild(makeTr(obj))
@@ -93,16 +93,18 @@ function makeTr(obj) {
       console.log("status : " + xhtp.status)
       let data = JSON.parse(xhtp.responseText)
       console.log(data)
+
       let tbl = document.createElement("table")
       tbl.setAttribute("border", "1")
       tbl.appendChild(makeHead())
-      tbl.appendChild(makeBody())
+      tbl.appendChild(makeBody(data))
       document.getElementById("list").appendChild(tbl)
-
       //   showCenterList(data)
     }
+    // ajax 호출
   }
-  // ajax 호출
+  xhtp.open("get", "../EmpList.json")
+  xhtp.send()
 })()
 
 // 등록버튼 이벤트
@@ -110,24 +112,31 @@ let addBtn = document.querySelector("#btn > button")
 addBtn.addEventListener("click", addCallback)
 
 function addCallback() {
-  let name = document.querySelector("input[name = 'name']").value
-  let phone = document.querySelector("input[name = 'phone']").value
-  let addr = document.querySelector("input[name = 'addr']").value
+  let eid = document.querySelector("input[name = 'eid']").value
+  let fname = document.querySelector("input[name = 'fname']").value
+  let lname = document.querySelector("input[name = 'lname']").value
+  let hire_date = document.querySelector("input[name = 'hire_date']").value
   let email = document.querySelector("input[name = 'email']").value
-  if (name == "" || phone == "" || addr == "" || email == "") {
+  let salary = document.querySelector("input[name = 'salary']").value
+  if (eid == "" || lname == "" || hire_date == "" || email == "") {
     window.alert("필수값을 입력하세요 !")
     return
   }
 
-  let obj = {
-    name: name,
-    phone: phone,
-    addr: addr,
-    email: email,
-  }
-  let tr = makeTr(obj)
-  document.querySelector("#list > table > tbody").appendChild(tr)
+  const xhtp = new XMLHttpRequest()
+  xhtp.onload = function () {}
+  xhtp.open("post", "../InsertEmployeeServlet")
+  xhtp.send()
 }
+
+let obj = {
+  name: name,
+  phone: phone,
+  addr: addr,
+  email: email,
+}
+let tr = makeTr(obj)
+document.querySelector("#list > table > tbody").appendChild(tr)
 
 // 삭제버튼 이벤트 등록
 let delBtn = document.querySelector("#btn > button:nth-child(2)")

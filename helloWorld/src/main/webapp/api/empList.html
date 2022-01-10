@@ -54,19 +54,26 @@
 
       #list {
         float: left;
-        width: 88%;
-        height: 350px;
-        margin: 5px 10px;
+        width: 93%;
+        height: 360px;
+        margin-left: 5px;
         border: 1px solid black;
       }
 
       #list table {
         width: 95%;
+        margin: 10px auto;
       }
 
       th,
       td {
-        padding: 5px;
+        width: 15%;
+        padding: 3px 3px;
+        text-align: center;
+      }
+
+      th:nth-child(5) {
+        width: 50px;
       }
     </style>
   </head>
@@ -74,20 +81,28 @@
     <div id="show">
       <div id="add">
         <div class="row">
+          <label for="">사원번호</label>
+          <input type="text" name="eid" />
+        </div>
+        <div class="row">
           <label for="">이름</label>
-          <input type="text" name="name" />
+          <input type="text" name="fname" />
         </div>
         <div class="row">
-          <label for="">연락처</label>
-          <input type="text" name="phone" />
+          <label for="">성씨</label>
+          <input type="text" name="lname" />
         </div>
         <div class="row">
-          <label for="">주소</label>
-          <input type="text" name="addr" />
+          <label for="">입사일자</label>
+          <input type="date" name="hire_date" />
         </div>
         <div class="row">
           <label for="">이메일</label>
-          <input type="text" name="email" />
+          <input type="email" name="email" />
+        </div>
+        <div class="row">
+          <label for="">급여</label>
+          <input type="text" name="salary" />
         </div>
       </div>
       <div id="btn">
@@ -101,7 +116,7 @@
     <script>
       "use strict"
 
-      const fields = ["employeeId", "firstName", "lastName"]
+      // const fields = ["employeeId", "firstName", "lastName"]
 
       function showCenterList(data) {
         let table = document.createElement("table")
@@ -136,8 +151,6 @@
         })
         document.getElementById("show").append(table)
       }
-      xhtp.open("get", "../EmpList.json")
-      xhtp.send()
     </script>
   </body>
 </html>
