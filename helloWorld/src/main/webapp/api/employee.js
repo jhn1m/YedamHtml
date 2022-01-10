@@ -151,9 +151,18 @@ delBtn.addEventListener("click", delCallback)
 function delCallback() {
   let chks = document.querySelectorAll("tbody input[type = 'checkbox']")
   for (let i = 0; i < chks.length; i++) {
-    if (chks[i].checked == true) {
-      chks[i].parentNode.parentNode.remove()
-    }
+      if (chks[i].checked == true) {
+        console.log(chks[i])
+      // ajax 호출 (삭제 서블릿 호출 > 화면에서 삭제.)
+    //   const xhtp = new XMLHttpRequest()
+    //   xhtp.onload = function () {
+        // 서버 호출 결과 값을 받아오면 실행하는 부분.
+    //   }
+    //   xhtp.open("post", "../DeleteEmployeeServlet")
+    //   xhtp.send("emp_id = ??")
+      // ajax 호출
+    //   chks[i].parentNode.parentNode.remove()
+    // }
   }
 }
 

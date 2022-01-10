@@ -31,10 +31,10 @@ public class InsertEmployeeServlet extends HttpServlet {
 
 		// 응답정보에 charset 지정.
 		// 출력 페이지에 content-type : json 으로 지정
-		
+
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/json; charset=utf-8");
-		
+
 		request.setCharacterEncoding("utf-8");
 
 		String eid = request.getParameter("employee_id");
@@ -47,7 +47,7 @@ public class InsertEmployeeServlet extends HttpServlet {
 		// empList.html 페이지 Ajax (현재페이지) 호출.
 		// 사용자가 입력한 값들...
 		EmployeeVO vo = new EmployeeVO();
-		
+
 		vo.setEmployeeId(Integer.parseInt(eid));
 		vo.setFirstName(fn);
 		vo.setLastName(ln);
@@ -58,7 +58,7 @@ public class InsertEmployeeServlet extends HttpServlet {
 
 		EmpDAO dao = new EmpDAO();
 		dao.insertEmployee(vo);
-		
+
 		Gson gson = new GsonBuilder().create();
 		response.getWriter().print(gson.toJson(vo));
 
