@@ -1,0 +1,15 @@
+For Test File
+
+Sample Data..
+
+Hello, World
+
+Lee 20 90
+
+Kim 21 89
+
+ON 25 80
+
+CHOI 20 88
+
+ 
