@@ -122,21 +122,27 @@ function addCallback() {
     window.alert("필수값을 입력하세요 !")
     return
   }
-
+  // json => javascript object 변경
   const xhtp = new XMLHttpRequest()
-  xhtp.onload = function () {}
+  xhtp.onload = function () {
+    let result = JSON.parse(xhtp.responseText)
+    console.log(result)
+    let tr = makeTr(obj)
+    document.querySelector("#list > table > tbody").appendChild(tr)
+  }
   xhtp.open("post", "../InsertEmployeeServlet")
-  xhtp.send()
+  xhtp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+  xhtp.send(
+    `employee_id=${eid}&first_name=${fname}&last_name=${lname}&email=${email}&hire_date=${hire_date}&salary=${salary}`
+  )
 }
 
-let obj = {
-  name: name,
-  phone: phone,
-  addr: addr,
-  email: email,
-}
-let tr = makeTr(obj)
-document.querySelector("#list > table > tbody").appendChild(tr)
+// let obj = {
+//   name: name,
+//   phone: phone,
+//   addr: addr,
+//   email: email,
+// }
 
 // 삭제버튼 이벤트 등록
 let delBtn = document.querySelector("#btn > button:nth-child(2)")
