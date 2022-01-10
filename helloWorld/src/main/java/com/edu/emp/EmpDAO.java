@@ -120,7 +120,7 @@ public class EmpDAO extends DAO {
 			pstmt.setString(3, emp.getEmail());
 			pstmt.setInt(4, emp.getEmployeeId());
 			int r = pstmt.executeUpdate();
-			System.out.println(r + "건 수정");
+			System.out.println(r + "건 수정했습니다.");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -128,6 +128,21 @@ public class EmpDAO extends DAO {
 		}
 	}
 
+	public boolean deleteEmployee(String empId) throws SQLException {
+		String sql = "delete from emp_temp where employee_id = ?";
+		connect();
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, empId);
+		int r = pstmt.executeUpdate(); // 처리된 건수 반환.
+		if (r > 0) {
+			System.out.println(r + "건 삭제했습니다.");
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// 삭제
 	public void deleteEmp(int empId) {
 		try {
 			connect();

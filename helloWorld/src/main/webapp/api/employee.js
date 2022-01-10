@@ -151,19 +151,30 @@ delBtn.addEventListener("click", delCallback)
 function delCallback() {
   let chks = document.querySelectorAll("tbody input[type = 'checkbox']")
   for (let i = 0; i < chks.length; i++) {
-      if (chks[i].checked == true) {
-        console.log(chks[i])
-      // ajax 호출 (삭제 서블릿 호출 > 화면에서 삭제.)
-    //   const xhtp = new XMLHttpRequest()
-    //   xhtp.onload = function () {
-        // 서버 호출 결과 값을 받아오면 실행하는 부분.
-    //   }
-    //   xhtp.open("post", "../DeleteEmployeeServlet")
-    //   xhtp.send("emp_id = ??")
+    if (chks[i].checked == true) {
+      console.log(chks[i].parentNode.nextSibling.innerText)
+      let del_id = chks[i].parentNode.nextSibling.innerText
+      // ajax 호출부분 (삭제 서블릿 호출 > 화면에서 삭제.)
+      const xhtp = new XMLHttpRequest()
+      xhtp.onload = function () {
+        //   서버 호출 결과 값을 받아오면 실행하는 부분.
+        console.log(xhtp.responseText)
+        let result = JSON.parse(xhtp.responseText)
+        if (result.retCode == "Success") {
+          chks[i].parentNode.parentNode.remove()
+        } else {
+          window.alert("조회된 데이터가 없습니다.")
+        }
+      }
       // ajax 호출
-    //   chks[i].parentNode.parentNode.remove()
-    // }
+
+      // 화면 삭제
+    }
   }
+
+  xhtp.open("post", "../DeleteEmployeeServlet")
+  xhtp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+  xhtp.send(`emp_id=${del_id}`)
 }
 
 // 리스트 > 입력화면에 보여주기.
@@ -181,6 +192,5 @@ for (let i = 0; i < names.length; i++) {
     document.querySelector("input[name='email']").value =
       names[i].parentNode.childNodes[4].innerText
   }
+  console.log(parent)
 }
-
-console.log(parent)
