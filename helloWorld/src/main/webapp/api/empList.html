@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>api/empList.html</title>
+    <style>
+      /* div:not(#show) {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        color: yellow;
+        border: 1px solid gray;
+        font-size: 30px;
+        text-align: center;
+        line-height: 100px;
+      } */
+
+      #add {
+        width: 70%;
+        border: 1px solid black;
+        margin: 5px;
+        padding: 10px;
+        float: left;
+      }
+
+      .row {
+        margin: 5px 10px;
+      }
+
+      .row > label {
+        display: inline-block;
+        width: 15%;
+      }
+
+      .row > input {
+        display: inline-block;
+        width: 75%;
+      }
+
+      #btn {
+        width: 20%;
+        height: 137px;
+        margin: 5px;
+        float: left;
+      }
+
+      #btn > button {
+        margin-top: 20px;
+        width: 100px;
+      }
+
+      #list {
+        float: left;
+        width: 88%;
+        height: 350px;
+        margin: 5px 10px;
+        border: 1px solid black;
+      }
+
+      #list table {
+        width: 95%;
+      }
+
+      th,
+      td {
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="show">
+      <div id="add">
+        <div class="row">
+          <label for="">이름</label>
+          <input type="text" name="name" />
+        </div>
+        <div class="row">
+          <label for="">연락처</label>
+          <input type="text" name="phone" />
+        </div>
+        <div class="row">
+          <label for="">주소</label>
+          <input type="text" name="addr" />
+        </div>
+        <div class="row">
+          <label for="">이메일</label>
+          <input type="text" name="email" />
+        </div>
+      </div>
+      <div id="btn">
+        <button>등록</button>
+        <button>선택삭제</button>
+      </div>
+      <div id="list"></div>
+    </div>
+    <script src="employee.js"></script>
+
+    <script>
+      "use strict"
+
+      const fields = ["employeeId", "firstName", "lastName"]
+
+      function showCenterList(data) {
+        let table = document.createElement("table")
+        table.setAttribute("border", "1")
+        table.setAttribute("id", "tbl")
+        let thead = document.createElement("thead")
+        let tbody = document.createElement("tbody")
+
+        // table의 하위요소로 thead, tbody 추가
+        table.append(thead, tbody)
+
+        // thead 작성
+        let tr = document.createElement("tr")
+        fields.forEach(function (field) {
+          let td = document.createElement("th")
+          let text = document.createTextNode(field.toUpperCase())
+          td.append(text)
+          tr.append(td)
+        })
+        thead.append(tr)
+
+        // tbody 작성
+        data.forEach(function (item) {
+          let tr = document.createElement("tr")
+          fields.forEach(function (field) {
+            let td = document.createElement("td")
+            let text = document.createTextNode(item[field])
+            td.append(text)
+            tr.append(td)
+          })
+          tbody.append(tr)
+        })
+        document.getElementById("show").append(table)
+      }
+      xhtp.open("get", "../EmpList.json")
+      xhtp.send()
+    </script>
+  </body>
+</html>

@@ -9,30 +9,30 @@
   <body id="show">
     <script>
       "use strict"
-      function makePage(aryData) {
-        // [{id : ?, first_name : ?, last_name : ?, email : ?, gender : ?}]
-        // > table 형식
-        // table > thead > tbody > tr > th, td
-        let table = document.createElement("table")
-        table.setAttribute("border", "1")
+      // function makePage(aryData) {
+      //   [{id : ?, first_name : ?, last_name : ?, email : ?, gender : ?}]
+      //   > table 형식
+      //   table > thead > tbody > tr > th, td
+      //   let table = document.createElement("table")
+      //   table.setAttribute("border", "1")
 
-        let thead = document.createElement("thead")
+      //   let thead = document.createElement("thead")
 
-        // <tbody></tbody>
-        let tbody = document.createElement("tbody")
-        aryData.forEach(function (obj) {
-          let tr = document.createElement("tr")
-          aryData.forEach(function (field) {
-            let td = document.createElement("td")
-            let text = document.createTextNode(field[obj])
-            td.append(text)
-            tr.append(td)
-          })
-          tbody.append(tr)
-        })
-        table.append(thead, tbody)
-        document.getElementById("show").append(table)
-      }
+      //   <tbody></tbody>
+      //   let tbody = document.createElement("tbody")
+      //   aryData.forEach(function (obj) {
+      //     let tr = document.createElement("tr")
+      //     aryData.forEach(function (field) {
+      //       let td = document.createElement("td")
+      //       let text = document.createTextNode(field[obj])
+      //       td.append(text)
+      //       tr.append(td)
+      //     })
+      //     tbody.append(tr)
+      //   })
+      //   table.append(thead, tbody)
+      //   document.getElementById("show").append(table)
+      // }
 
       //   let ul = document.createElement("ul")
       //   aryData.forEach(function (item) {
@@ -104,9 +104,9 @@
           console.log("readyState : " + xhtp.readyState)
           console.log("status : " + xhtp.status)
           let data = JSON.parse(xhtp.responseText)
-          console.log(data)
+          // console.log(data)
 
-          makePage(data)
+          // makePage(data)
           //   showCenterList(data)
         }
       }

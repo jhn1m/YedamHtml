@@ -1,0 +1,7 @@
+{
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    "webapp/WEB-INF/lib/gson-2.8.2.jar",
+    "webapp/WEB-INF/lib/ojdbc6_g.jar"
+  ]
+}
