@@ -127,7 +127,7 @@ function addCallback() {
   xhtp.onload = function () {
     let result = JSON.parse(xhtp.responseText)
     console.log(result)
-    let tr = makeTr(obj)
+    let tr = makeTr(result)
     document.querySelector("#list > table > tbody").appendChild(tr)
   }
   xhtp.open("post", "../InsertEmployeeServlet")
