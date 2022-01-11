@@ -5,7 +5,7 @@
     <title>마커에 인포윈도우 표시하기</title>
   </head>
   <body>
-    <div id="map" style="width: 70%; height: 550px"></div>
+    <div id="map" style="width: 70%; height: 90vh"></div>
 
     <script
       type="text/javascript"
@@ -13,16 +13,33 @@
     ></script>
     <script>
       "use strict"
+
+      let url = location.href
+      console.log(url)
+      let x = url.indexOf("lat")
+      let amp = url.indexOf("&")
+      let y = url.indexOf("lng")
+
+      console.log(x, y)
+      console.log(url.substr(x + 4, amp))
+      console.log(url.substr(y + 4))
+
+      let lat = url.substr(x + 4, amp)
+      let lng = url.substr(x + 4)
+
       var mapContainer = document.getElementById("map"), // 지도를 표시할 div
         mapOption = {
-          center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+          center: new kakao.maps.LatLng(parseFloat(lat), parseFloat(lng)), // 지도의 중심좌표
           level: 3, // 지도의 확대 레벨
         }
 
       var map = new kakao.maps.Map(mapContainer, mapOption)
 
       // 마커가 표시될 위치입니다
-      var markerPosition = new kakao.maps.LatLng(33.450701, 126.570667)
+      var markerPosition = new kakao.maps.LatLng(
+        parseFloat(lat),
+        parseFloat(lng)
+      )
 
       // 마커를 생성합니다
       var marker = new kakao.maps.Marker({

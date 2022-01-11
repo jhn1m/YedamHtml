@@ -54,6 +54,7 @@
         "phoneNumber",
         "sido",
         "sigungu",
+        "map",
       ]
       function showCenterList(data) {
         // 전체 카운트 : data.currentCount : 284
@@ -83,10 +84,25 @@
         data.data.forEach(function (item) {
           let tr = document.createElement("tr")
           fields.forEach(function (field) {
-            let td = document.createElement("td")
-            let text = document.createTextNode(item[field])
-            td.append(text)
-            tr.append(td)
+            // map => link 생성
+            if (field == "map") {
+              let linkTag = document.createElement("a")
+              linkTag.setAttribute(
+                "href",
+                `daum.html?lat=${item.lat}&lng=${item.lng}`
+              )
+              linkTag.setAttribute("target", "_blank")
+              linkTag.innerText = item.centerName
+
+              let td = document.createElement("td")
+              td.appendChild(linkTag)
+              tr.append(td)
+            } else {
+              let td = document.createElement("td")
+              let text = document.createTextNode(item[field])
+              td.append(text)
+              tr.append(td)
+            }
           })
           tbody.append(tr)
         })
@@ -104,10 +120,11 @@
           console.log("readyState : " + xhtp.readyState)
           console.log("status : " + xhtp.status)
           let data = JSON.parse(xhtp.responseText)
+          // {currentCount : 284, data : [{}{}{}]
           // console.log(data)
 
           // makePage(data)
-          //   showCenterList(data)
+          showCenterList(data)
         }
       }
       xhtp.open("get", url)
