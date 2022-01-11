@@ -103,6 +103,10 @@ function showCenterListBySido(data) {
     console.log(filterAry)
     showCenterList(filterAry)
   }
+
+  // 서울특별시 클릭.
+  let firstBtn = document.querySelector("#show>button:nth-child(1)")
+  firstBtn.click() // 클릭 이벤트 호출
 }
 
 // Asynchoronous Javascript And Xml(ajax)
