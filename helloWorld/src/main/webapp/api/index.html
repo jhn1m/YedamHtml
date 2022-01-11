@@ -5,8 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>api/index.html</title>
+    <style>
+      #page {
+        width: 30%;
+        margin: 5px auto;
+      }
+
+      #page > a {
+        /* display: inline-block; */
+        padding: 3px 5px;
+      }
+
+      .active {
+        text-decoration: none;
+        font-size: 1.4em;
+      }
+    </style>
   </head>
-  <body id="show">
+  <body>
+    <input
+      type="text"
+      name="searchCenter"
+      id="searchCenter"
+      placeholder="입력하세요"
+    />
+    <button id="searchBtn">입력조회</button>
+    <div id="show"></div>
+    <div id="page"></div>
     <script src="map.js"></script>
   </body>
 </html>

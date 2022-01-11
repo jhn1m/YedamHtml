@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #add {
+        width: 70%;
+        border: 1px solid black;
+        margin: 5px;
+        padding: 10px;
+        float: left;
+      }
+
+      .row {
+        margin: 5px 10px;
+      }
+
+      .row > label {
+        display: inline-block;
+        width: 25%;
+        background-color: beige;
+        text-align: center;
+      }
+
+      .row > input {
+        display: inline-block;
+        width: 65%;
+      }
+
+      #btn {
+        width: 20%;
+        height: 137px;
+        margin: 5px;
+        float: left;
+      }
+
+      #btn > button {
+        margin-top: 30px;
+        width: 100px;
+      }
+
+      #list {
+        float: left;
+        width: 93%;
+        margin-left: 5px;
+      }
+
+      #list table {
+        width: 95%;
+        margin: 10px auto;
+        border: none;
+      }
+
+      #list thead tr {
+        background-color: red;
+        color: white;
+      }
+
+      #list tbody tr td:nth-child(3) {
+        width: 30%;
+        text-align: left;
+      }
+
+      #list tbody tr td:nth-child(5) {
+        width: 15%;
+      }
+
+      th,
+      td {
+        border: none;
+        text-align: center;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+      }
+
+      th:nth-child(5) {
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="show">
+      <hr />
+      <div id="add">
+        <div class="row">
+          <label for="">도서코드</label>
+          <input type="text" name="bid" />
+        </div>
+        <div class="row">
+          <label for="">도서명</label>
+          <input type="text" name="bname" />
+        </div>
+        <div class="row">
+          <label for="">저자</label>
+          <input type="text" name="author" />
+        </div>
+        <div class="row">
+          <label for="">출판사</label>
+          <input type="text" name="publisher" />
+        </div>
+        <div class="row">
+          <label for="">금액</label>
+          <input type="text" name="price" />
+        </div>
+      </div>
+      <div id="btn">
+        <button>저장</button>
+        <button>선택삭제</button>
+      </div>
+      <div id="list"></div>
+    </div>
+    <script src="test.js"></script>
+  </body>
+</html>

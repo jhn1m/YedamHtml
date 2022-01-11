@@ -1,6 +1,25 @@
 // map.js
 
 "use strict"
+
+function makePage(aryData) {
+  // [{id:??, first_name:??, last_name:??, email:??}]
+  // -> table 형식.
+  // table > thead, tbody > tr > th,td
+  let ul = document.createElement("ul")
+  aryData.forEach(function (item) {
+    let li = document.createElement("li")
+    let text = document.createTextNode(
+      `${item.id} - ${item.first_name} - ${item.last_name}`
+    )
+    li.appendChild(text)
+    ul.appendChild(li)
+  })
+  console.log(ul)
+  document.getElementsByTagName("body")[0].appendChild(ul)
+}
+
+// 필드 정의
 const fields = [
   "id",
   "centerName",
@@ -10,6 +29,7 @@ const fields = [
   "sigungu",
   "map",
 ]
+
 function showCenterList(data) {
   // 전체 카운트 : data.currentCount : 284
   // 현재 페이지 : data.page : 1
@@ -82,8 +102,8 @@ function showCenterListBySido(data) {
     if (filteredCenter.indexOf(item.sido) == -1) {
       filteredCenter.push(item.sido)
     }
-    console.log(filteredCenter)
   })
+
   // 버튼생성
   let show = document.getElementById("show")
   filteredCenter.forEach(function (centerName) {
@@ -97,17 +117,67 @@ function showCenterListBySido(data) {
     // 서울특별시 => 서울특별시 소속의 센터출력.
     console.log(this.innerText)
     let searchCenterName = this.innerText
+
     let filterAry = centers.filter(function (item) {
       return item.sido == searchCenterName
     })
-    console.log(filterAry)
-    showCenterList(filterAry)
-  }
+    // filterAry.length => 배열의 크기
+    // paging 페이지 수를 계산
+    let totalCnt = filterAry.length // 43 / 10 => 4.3
+    let totalPage = Math.ceil(totalCnt / 10)
 
+    // a태그 생성하는 부분
+    let paging = document.getElementById("page")
+    // 새로운 시군구의 정보를 보여주기 전에 이전 페이지 정보를 초기화
+    let children = paging.childNodes
+    let lnth = children.length
+    for (let i = 0; i < lnth; i++) {
+      paging.removeChild(children[0])
+    }
+    for (let i = 1; i <= totalPage; i++) {
+      let aTag = document.createElement("a")
+      aTag.innerText = i
+      aTag.setAttribute("href", "#")
+      aTag.addEventListener("click", pagingList)
+      paging.appendChild(aTag)
+    }
+    console.log(filterAry)
+    //filterAry => [{},{},{},{}]
+
+    pagingList()
+    // showCenterList(filterAry) // 43개 호출, 10개씩 구분
+
+    function pagingList() {
+      // 리스트 a에 있는 class를 초기화
+      let allA = document.querySelectorAll("#page>a")
+      for (let a of allA) {
+        a.setAttribute("class", "")
+      }
+
+      // <a>, <div> => 1, window nodeType
+      if (this.nodeType == 1) {
+        this.setAttribute("class", "active")
+      }
+      let page = this.innerText // <a>2</a>
+      if (page == null || page == "") {
+        page = "1"
+      }
+      page = parseInt(page)
+      pagingAry = filterAry.filter(function (item, ind) {
+        let startCnt = (page - 1) * 10 // 0
+        let endCnt = page * 10
+        return startCnt <= ind && ind < endCnt
+      })
+      showCenterList(pagingAry)
+    }
+  }
   // 서울특별시 클릭.
   let firstBtn = document.querySelector("#show>button:nth-child(1)")
   firstBtn.click() // 클릭 이벤트 호출
-}
+
+  // 사용자 입력값을 읽고 =>
+  // 버튼 => 이벤트 등록
+} // end of showCenterListBySido()
 
 // Asynchoronous Javascript And Xml(ajax)
 // perPage = 가져올 데이터 건 수
