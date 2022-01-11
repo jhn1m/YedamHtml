@@ -166,7 +166,6 @@ function delCallback() {
           window.alert("조회된 데이터가 없습니다.")
         }
       }
-      // ajax 호출
 
       // 화면 삭제
     }
