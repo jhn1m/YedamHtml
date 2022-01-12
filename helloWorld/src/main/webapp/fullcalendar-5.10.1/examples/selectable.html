@@ -64,9 +64,10 @@
             calendar.unselect()
           },
           eventClick: function (arg) {
-            console.log(arg)
-            var title = arg.el.innerText
-            if (confirm("Are you sure you want to delete this event?")) {
+            console.log(arg.event._def.title)
+            //var title = arg.el.innerText
+            var title = arg.event._def.title
+            if (confirm("이벤트를 삭제할까요?")) {
               // 데이터 삭제 처리...
               var delAjax = new XMLHttpRequest()
               delAjax.open("post", "../../ScheduleServlet")
@@ -76,10 +77,13 @@
               )
               delAjax.send(`title=${title}&action=delete`)
               delAjax.onload = function () {
-                arg.event.remove() // 화면 삭제
-                alert("에러가 발생했습니다.")
+                var result = JSON.parse(delAjax.responseText)
+                if (result.retCode == "Success") {
+                  arg.event.remove() // 화면 삭제
+                } else {
+                  alert("에러가 발생했습니다.")
+                }
               }
-              arg.event.remove()
             }
           },
           editable: true,
