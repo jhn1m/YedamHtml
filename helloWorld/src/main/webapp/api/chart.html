@@ -6,6 +6,11 @@
     ></script>
     <script type="text/javascript">
       var memberByDept = [] // [["sales", 10], ["Engineering", 5],[]]
+      // title 지정
+      var titleAry = ["Department", "CntByDept"]
+      memberByDept.push(titleAry)
+
+      // AJAX 호출
       var xhtp = new XMLHttpRequest()
       xhtp.onload = function () {
         let result = JSON.parse(xhtp.responseText)
@@ -15,7 +20,7 @@
         result.forEach(function (member) {
           let cnt = 0
           console.log(member.department)
-          for (let i = 0; i < memberByDept; i++) {
+          for (let i = 0; i < memberByDept.length; i++) {
             // memberByDept 배열에 부서가 추가된 이력이 있는지 확인
             // true 일때 1 추가
             // false 일때 새로운 배열을 추가
@@ -30,32 +35,25 @@
             let departAry = []
             departAry.push(member.department) // 부서
             departAry.push(1) // 인원 추가
-            departAry.push(departAry)
+            memberByDept.push(departAry)
           }
         })
-        console.log()
+        console.log(memberByDept)
+        // memberByDept 값이 [] (없음)
+        google.charts.load("current", { packages: ["corechart"] })
+        google.charts.setOnLoadCallback(drawChart)
       }
 
       xhtp.open("get", "employee_info.json")
       xhtp.send()
 
-      google.charts.load("current", { packages: ["corechart"] })
-      google.charts.setOnLoadCallback(drawChart)
-
       function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ["Task", "Hours per Day"],
-          ["일하는 시간", 11],
-          ["식사시간", 2],
-          ["소통", 2],
-          ["TV감상", 2],
-          ["수면", 7],
-        ])
+        var data = google.visualization.arrayToDataTable(memberByDept)
 
         // [{},{},{}] => [[],[],[]]
 
         var options = {
-          title: "일정표",
+          title: "부서별 사원수",
         }
 
         var chart = new google.visualization.PieChart(
