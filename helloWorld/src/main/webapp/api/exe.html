@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>api/exe.html</title>
+    <style>
+      #show > span {
+        display: inline-block;
+        width: 120px;
+        background-color: yellow;
+        padding: 5px;
+        margin: 3px;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var show = document.getElementById("show")
+        var data = `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate deleniti, officiis, voluptatem dignissimos, dolore reiciendis animi provident quo amet delectus laboriosam? Provident similique cupiditate modi ratione voluptatum repellendus laboriosam eaque.`
+        var dataAry = data.split(" ")
+        console.log(dataAry)
+        dataAry.forEach(function (shortWord) {
+          span = document.createElement("span")
+          span.innerText = shortWord
+          show.appendChild(span)
+        })
+        var delBtn = document.getElementById("searchBtn")
+        delBtn.addEventListener("click", delFnc)
+
+        function delFnc() {
+            
+        }
+      })
+    </script>
+  </head>
+  <body>
+    <input type="text" name="inputWord" id="inputWord" />
+    <button id="searchBtn">삭제</button>
+    <br />
+    <div id="show"></div>
+  </body>
+</html>
