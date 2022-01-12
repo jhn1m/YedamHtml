@@ -6,6 +6,14 @@
     <script src="../lib/main.js"></script>
     <script>
       var eventData = "" // 값을 넣어주기.
+      var xhtp = new XMLHttpRequest()
+      xhtp.open("get", "../../ScheduleServlet")
+      xhtp.send()
+      xhtp.onload = function () {
+        eventData = JSON.parse(xhtp.responseText)
+        console.log(xhtp.responseText)
+      }
+      // 아래 부분을 실행
       document.addEventListener("DOMContentLoaded", function () {
         var calendarEl = document.getElementById("calendar")
 
