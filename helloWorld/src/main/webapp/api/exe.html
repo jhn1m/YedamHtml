@@ -25,11 +25,31 @@
           span.innerText = shortWord
           show.appendChild(span)
         })
+
+        // 버튼이벤트 등록
         var delBtn = document.getElementById("searchBtn")
         delBtn.addEventListener("click", delFnc)
 
+        // 사용자입력 input
+        var inputElem = document.getElementById("inputWord")
+        inputElem.addEventListener("change", chk)
+
+        function chk() {
+          var inputText = inputElem.value
+          console.log(inputText)
+          var searchWord = inputText
+        }
         function delFnc() {
-            
+          // 화면의 span 읽어와서
+          var wordAry = document.querySelectorAll("span") // 문제
+
+          // 사용자의 입력값 => value 속성
+          wordAry.forEach(function (dataAry) {
+            // 비교해서 값이 같으면 element.remove()
+            if (inputElem.value == dataAry.innerText) {
+              dataAry.remove()
+            }
+          })
         }
       })
     </script>
