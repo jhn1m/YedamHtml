@@ -15,12 +15,14 @@
       }
     </style>
     <script>
+      "use strict"
       document.addEventListener("DOMContentLoaded", function () {
         var show = document.getElementById("show")
         var data = `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate deleniti, officiis, voluptatem dignissimos, dolore reiciendis animi provident quo amet delectus laboriosam? Provident similique cupiditate modi ratione voluptatum repellendus laboriosam eaque.`
         var dataAry = data.split(" ")
         console.log(dataAry)
         dataAry.forEach(function (shortWord) {
+          var span
           span = document.createElement("span")
           span.innerText = shortWord
           show.appendChild(span)
@@ -29,6 +31,9 @@
         // 버튼이벤트 등록
         var delBtn = document.getElementById("searchBtn")
         delBtn.addEventListener("click", delFnc)
+
+        var addBtn = document.getElementById("addBtn")
+        addBtn.addEventListener("click", addFnc)
 
         // 사용자입력 input
         var inputElem = document.getElementById("inputWord")
@@ -51,12 +56,17 @@
             }
           })
         }
+
+        function addFnc() {
+          dataAry. inputElem.value
+        }
       })
     </script>
   </head>
   <body>
     <input type="text" name="inputWord" id="inputWord" />
     <button id="searchBtn">삭제</button>
+    <button id="addBtn">추가</button>
     <br />
     <div id="show"></div>
   </body>
