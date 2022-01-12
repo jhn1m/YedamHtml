@@ -18,7 +18,6 @@ public class RegisterSurvlet extends HttpServlet {
 
 	public RegisterSurvlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -50,7 +49,6 @@ public class RegisterSurvlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
