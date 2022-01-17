@@ -18,6 +18,7 @@ import com.edu.control.MemberDeleteController;
 import com.edu.control.MemberInsertController;
 import com.edu.control.MemberListController;
 import com.edu.control.MemberSearchController;
+import com.edu.control.MemberUpdateController;
 
 public class FrontController extends HttpServlet {
 
@@ -32,12 +33,14 @@ public class FrontController extends HttpServlet {
 		map.put("/memberInsert.do", new MemberInsertController());
 		map.put("/memberSearch.do", new MemberSearchController());
 		map.put("/memberDelete.do", new MemberDeleteController());
+		map.put("/memberUpdate.do", new MemberUpdateController());
 
 		// 댓글관련
 		map.put("/commentAdd.do", new CommentAddController());
 		map.put("/commentList.do", new CommentListController());
 		map.put("/commentGet.do", new CommentGetController());
 		map.put("/commentUpdate.do", new CommentUpdateController());
+
 	}
 
 	@Override

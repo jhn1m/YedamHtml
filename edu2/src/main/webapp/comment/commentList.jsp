@@ -28,6 +28,7 @@
 		+ comment.getName() + "</td><td>" //
 		+ comment.getContent() + "</td></tr>");
 	}
+	
 	out.print("</tbody>");
 	out.print("</table>");
 	} else {

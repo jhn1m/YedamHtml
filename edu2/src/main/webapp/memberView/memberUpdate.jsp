@@ -8,21 +8,35 @@
 <title>memberView/memberUpdate.jsp</title>
 </head>
 <body>
-<%
+	<%
 	MemberVO vo = (MemberVO) request.getAttribute("member");
 	%>
-<h3>회원정보 검색</h3>
-	<form action="<%=request.getContextPath()%>/memberSearch.do" method="post">
-		아이디 : <input type="text" name="id"><br> 
-		<input type="hidden" name="job" value="update"><br> 
-		<input type="submit" value="조회">
+	<h3>회원정보 검색</h3>
+	<form action="<%=request.getContextPath()%>/memberSearch.do"
+		method="post">
+		아이디 : <input type="text" name="id"><br> <input
+			type="hidden" name="job" value="update"><br> <input
+			type="submit" value="조회">
 	</form>
-	
+
 	<%
-	if(){
-		
+	if (vo != null) {
+	%>
+	<p>회원정보수정</p>
+	<form action="<%=request.getContextPath() %>/memberUpdate.do" method="post">
+		아이디 : <input type="text" readonly name = "id" value="<%=vo.getId()%>"><br>
+		비밀번호 : <input type="text" name="passwd" value="<%=vo.getPasswd()%>"><br>
+		이름 : <input type="text" name="name" value="<%=vo.getName()%>"><br>
+		이메일 : <input type="email" name="mail" value="<%=vo.getMail()%>"><br>
+		<input type="submit" value="수정">
+	</form>
+
+	<%
+	} else {
+	%>
+	<p>조회된 결과가 없습니다</p>
+	<%
 	}
 	%>
-	
 </body>
 </html>

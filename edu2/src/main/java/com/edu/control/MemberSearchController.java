@@ -31,9 +31,12 @@ public class MemberSearchController implements Controller {
 		} else if (job.equals("update")) {
 			path = "memberView/memberUpdate.jsp";
 		} else {
-			path = "memberResult/memberSearchOutput.jsp";
+			if (vo == null) {
+				path = "memberView/memberSearch.jsp";
+			} else {
+				path = "memberResult/memberSearchOutput.jsp";
+			}
 		}
-
 		req.getRequestDispatcher(path).forward(req, resp);
 	}
 }

@@ -24,5 +24,8 @@
 	<a href="memberView/memberDelete.jsp">회원정보 삭제</a>
 	<br>
 	<a href="memberView/memberUpdate.jsp">회원정보 수정</a>
+	<br>
+	<a href="memberList.do">모든 회원정보 열람</a>
+	<br>
 </body>
 </html>
