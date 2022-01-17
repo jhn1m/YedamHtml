@@ -105,6 +105,7 @@ public class MemberDAO extends DAO {
         try {
             psmt = conn.prepareStatement(sql);
             psmt.setString(1, id);
+            psmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

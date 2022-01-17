@@ -4,15 +4,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>첫페이지(index.jsp)</title><!-- /edu2/index.jsp -->
+<title>첫페이지(index.jsp)</title>
+<!-- /edu2/index.jsp -->
 </head>
 <body>
-	<a href='./member/memberList.jsp'>회원리스트</a><br>
-	<a href='./memberList.do?id=user1&pw=1234'>멤버리스트.do</a><br>
-	<a href='./memberInsert.do'>멤버등록.do</a><br>
-	
-	<a href='./comment/commentAddForm.jsp'>글등록페이지</a><br>
-	<a href='./commentList.do'>글목록컨트롤</a><br>
-	<a href='./comment/commentList.jsp'>글목록</a><br>
+	<h3>글등록 관련</h3>
+	<a href='./comment/commentAddForm.jsp'>글등록페이지</a>
+	<br>
+	<a href='./commentList.do'>글목록컨트롤</a>
+	<br>
+	<a href='./comment/commentList.jsp'>글목록</a>
+	<br>
+
+	<h3>회원등록 관련</h3>
+	<a href="memberView/memberInsert.jsp">회원등록 페이지</a>
+	<br>
+	<a href="memberView/memberSearch.jsp">회원정보 검색</a>
+	<br>
+	<a href="memberView/memberDelete.jsp">회원정보 삭제</a>
+	<br>
+	<a href="memberView/memberUpdate.jsp">회원정보 수정</a>
 </body>
 </html>
