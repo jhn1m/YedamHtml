@@ -21,8 +21,9 @@ public class MemberSearchController implements Controller {
 		MemberDAO dao = new MemberDAO();
 		MemberVO vo = dao.getMember(id);
 
+		req.setAttribute("searchId", id);
 		req.setAttribute("member", vo); // 요청정보 member 속성 = vo
-
+		
 		String job = req.getParameter("job");
 		String path = "";
 

@@ -2,6 +2,8 @@
 <%@page import="com.edu.model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,11 +11,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<%-- <%
+	MemberVO member = (MemberVO) session.getAttribute("login");
+	%>
+	<h3>
+		사용자 이름은 :
+		<%=member.getName()%>입니다.
+	</h3>
 	<%
 	List<MemberVO> list = (List<MemberVO>) request.getAttribute("memberList"); // 속성지정
 	if (list.size() != 0) {
 	%>
+
+
 	<h3>회원리스트</h3>
 	<table border="1">
 		<thead>
@@ -48,6 +58,15 @@
 	}
 	%>
 
-	<%@include file="home.jsp"%>
+	<%@include file="home.jsp"%> --%>
+
+	<c:set var="id" value="guest"></c:set>
+	<c:out value="${id }"></c:out>
+
+	<c:if test="${id eq guest}">
+		<p>Guest 입니다.</p>
+	</c:if>
+
+
 </body>
 </html>

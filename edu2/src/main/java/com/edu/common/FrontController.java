@@ -14,6 +14,7 @@ import com.edu.control.CommentAddController;
 import com.edu.control.CommentGetController;
 import com.edu.control.CommentListController;
 import com.edu.control.CommentUpdateController;
+import com.edu.control.LoginController;
 import com.edu.control.MemberDeleteController;
 import com.edu.control.MemberInsertController;
 import com.edu.control.MemberListController;
@@ -41,6 +42,9 @@ public class FrontController extends HttpServlet {
 		map.put("/commentGet.do", new CommentGetController());
 		map.put("/commentUpdate.do", new CommentUpdateController());
 
+		// 로그인 관련
+		map.put("/login.do", new LoginController());
+		
 	}
 
 	@Override

@@ -7,6 +7,33 @@ import java.util.List;
 import com.edu.common.DAO;
 
 public class MemberDAO extends DAO {
+
+	// 로그인 체크
+	public MemberVO loginCheck(String id, String pw) {
+		connect();
+		String sql = "SELECT * FROM member WHERE id = ? and passwd = ?";
+		MemberVO member = null;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setString(2, pw);
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				member = new MemberVO();
+				member.setId(rs.getString("id"));
+				member.setPasswd(rs.getString("passwd"));
+				member.setName(rs.getString("name"));
+				member.setMail(rs.getString("mail"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return member;
+	}
+
 	// 리스트
 	public List<MemberVO> getMemberList() {
 		connect();

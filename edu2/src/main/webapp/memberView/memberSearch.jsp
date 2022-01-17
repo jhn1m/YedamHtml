@@ -11,8 +11,11 @@
 
 	<%
 	MemberVO vo = (MemberVO) request.getAttribute("member");
-	if (vo == null) {
-		out.println("<p>조회된 정보가 없습니다.</p>");
+	String sid = (String) request.getAttribute("searchId");
+	if (sid != null) {
+		if (vo == null) {
+			out.println("<p>아이디 : " + sid + "의 조회된 정보가 없습니다.</p>");
+		}
 	}
 	%>
 
@@ -20,7 +23,7 @@
 	<form action="<%=request.getContextPath()%>/memberSearch.do"
 		method="post">
 		아이디 : <input type="text" name="id"><br> <input
-			type="hidden" name="job" value="update"> <input type="submit"
+			type="hidden" name="job" value=""> <input type="submit"
 			value="조회">
 	</form>
 </body>
