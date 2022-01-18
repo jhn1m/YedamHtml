@@ -2,8 +2,15 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
-
+<script>
+	function formSubmit(id){
+		document.forms.frm.id.value = id;
+		document.forms.frm.submit();
+	}
+</script>
+<form id="frm" name="frm" action="${pageContext.request.contextPath }/bulletinSelect.do" method="post">
+	<input type="hidden" name="id">
+</form>
 <table border="1">
 	<thead>
 		<tr>
@@ -16,7 +23,7 @@
 	</thead>
 	<tbody>
 		<c:forEach var="bulletin" items="${bulletinList }">
-			<tr>
+			<tr onclick="formSubmit(${bulletin.bbsId})">
 				<td>${bulletin.bbsId }</td>
 				<td>${bulletin.bbsTitle }</td>
 				<td>${bulletin.bbsWriter }</td>

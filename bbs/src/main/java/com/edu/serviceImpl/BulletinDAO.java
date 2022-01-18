@@ -39,7 +39,30 @@ public class BulletinDAO extends DAO implements BulletinService {
 
 	@Override
 	public BulletinVO selectOne(int bbsId) {
-		return null;
+		connect();
+		String sql = "SELECT * FROM bbs WHERE bbs_id = ?";
+		BulletinVO bulletin = null;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, bbsId);
+			
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				bulletin = new BulletinVO();
+				bulletin.setBbsId(rs.getInt("bbs_id"));
+				bulletin.setBbsTitle(rs.getString("bbs_title"));
+				bulletin.setBbsWriter(rs.getString("bbs_writer"));
+				bulletin.setBbsContent(rs.getString("bbs_content"));
+				bulletin.setBbsImage(rs.getString("bbs_image"));
+				bulletin.setBbsHit(rs.getInt("bbs_hit"));
+				bulletin.setBbsCreateDate(rs.getString("bbs_create_date"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return bulletin;
 	}
 
 	@Override

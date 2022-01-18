@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.edu.web.BulletinAddController;
 import com.edu.web.BulletinFormController;
 import com.edu.web.BulletinListController;
+import com.edu.web.BulletinSelectController;
 import com.edu.web.MainController;
 
 public class FrontController extends HttpServlet {
@@ -30,6 +31,7 @@ public class FrontController extends HttpServlet {
 		map.put("/bulletinList.do", new BulletinListController());
 		map.put("/bulletinForm.do", new BulletinFormController());
 		map.put("/bulletinAdd.do", new BulletinAddController());
+		map.put("/bulletinSelect.do", new BulletinSelectController());
 	}
 
 	
