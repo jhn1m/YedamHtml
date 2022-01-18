@@ -32,7 +32,7 @@
 	<%
 	}
 	%>
-	<script>
+	<%-- <script>
 	document.getElementById("logout").addEventListener("click", logoutFnc)
 	function logoutFnc(){
 		<% 
@@ -40,6 +40,6 @@
 		%>
 		location.href = "index.jsp";
 	}
-	</script>
+	</script> --%>
 </body>
 </html>
