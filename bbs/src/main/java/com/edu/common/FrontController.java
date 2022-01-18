@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.edu.web.BulletinListController;
+import com.edu.web.MainController;
 
 public class FrontController extends HttpServlet {
 
@@ -18,11 +20,16 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		map = new HashMap<String, Controller>();
-		
+
 		// url 패턴 - 컨트롤러
 		map.put("/main.do", new MainController());
+		
+		// 게시판 컨트롤
+		map.put("/bulletinList.do", new BulletinListController());
 	}
 
+	
+	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 한글처리
