@@ -7,6 +7,6 @@
 
 <ul>
 	<li><a href="">공지사항</a></li>
-	<li><a href="">자유게시판</a></li>
-	<li><a href="">홈으로</a></li>
+	<li><a href="${pageContext.request.contextPath }/bulletinList.do">자유게시판</a></li>
+	<li><a href="${pageContext.request.contextPath }/main.do">홈으로</a></li>
 </ul>

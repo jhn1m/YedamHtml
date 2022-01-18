@@ -21,11 +21,13 @@ public class BulletinListController implements Controller {
 
 		String path = "bulletin/bulletinList.tiles";
 
+		// 게시글 리스트
 		BulletinService service = new BulletinDAO();
 		List<BulletinVO> list = service.selectList();
 
+		// /bulletinList.do 요청정보를 bulletinList.jsp 페이지로 전달
 		req.setAttribute("bulletinList", list);
 
-		HttpUtil.forward(req, resp, null);
+		HttpUtil.forward(req, resp, path);
 	}
 }

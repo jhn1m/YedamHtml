@@ -2,7 +2,7 @@ package com.edu.vo;
 
 public class BulletinVO {
 	private int bbsId;
-	private String bbsTitleString;
+	private String bbsTitle;
 	private String bbsContent;
 	private String bbsWriter;
 	private String bbsImage;
@@ -14,11 +14,11 @@ public class BulletinVO {
 	public void setBbsId(int bbsId) {
 		this.bbsId = bbsId;
 	}
-	public String getBbsTitleString() {
-		return bbsTitleString;
+	public String getBbsTitle() {
+		return bbsTitle;
 	}
-	public void setBbsTitleString(String bbsTitleString) {
-		this.bbsTitleString = bbsTitleString;
+	public void setBbsTitle(String bbsTitle) {
+		this.bbsTitle = bbsTitle;
 	}
 	public String getBbsContent() {
 		return bbsContent;
@@ -52,7 +52,7 @@ public class BulletinVO {
 	}
 	@Override
 	public String toString() {
-		return "BulletinVO [bbsId=" + bbsId + ", bbsTitleString=" + bbsTitleString + ", bbsContent=" + bbsContent
+		return "BulletinVO [bbsId=" + bbsId + ", bbsTitle=" + bbsTitle + ", bbsContent=" + bbsContent
 				+ ", bbsWriter=" + bbsWriter + ", bbsImage=" + bbsImage + ", bbsCreateDate=" + bbsCreateDate
 				+ ", bbsHit=" + bbsHit + "]";
 	}
