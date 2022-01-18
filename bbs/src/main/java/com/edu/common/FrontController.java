@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.edu.web.BulletinAddController;
+import com.edu.web.BulletinFormController;
 import com.edu.web.BulletinListController;
 import com.edu.web.MainController;
 
@@ -26,6 +28,8 @@ public class FrontController extends HttpServlet {
 		
 		// 게시판 컨트롤
 		map.put("/bulletinList.do", new BulletinListController());
+		map.put("/bulletinForm.do", new BulletinFormController());
+		map.put("/bulletinAdd.do", new BulletinAddController());
 	}
 
 	

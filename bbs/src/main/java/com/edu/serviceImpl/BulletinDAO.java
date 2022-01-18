@@ -22,6 +22,7 @@ public class BulletinDAO extends DAO implements BulletinService {
 				BulletinVO bulletin = new BulletinVO();
 				bulletin.setBbsId(rs.getInt("bbs_id"));
 				bulletin.setBbsTitle(rs.getString("bbs_title"));
+				bulletin.setBbsWriter(rs.getString("bbs_writer"));
 				bulletin.setBbsContent(rs.getString("bbs_content"));
 				bulletin.setBbsImage(rs.getString("bbs_image"));
 				bulletin.setBbsHit(rs.getInt("bbs_hit"));
@@ -43,7 +44,36 @@ public class BulletinDAO extends DAO implements BulletinService {
 
 	@Override
 	public BulletinVO insert(BulletinVO vo) {
-		return null;
+		connect();
+		String sql1 = "select bbs_id_seq.nextval from dual";
+		String sql2 = "insert into bbs(bbs_id, bbs_title, bbs_content, bbs_writer, bbs_image, bbs_create_date, bbs_hit) values(?,?,?,?,?,sysdate,0)";
+		try {
+			psmt = conn.prepareStatement(sql1);
+			rs = psmt.executeQuery();
+			int seq = 0;
+			if (rs.next()) {
+				seq = rs.getInt(1);
+			}
+
+			psmt = conn.prepareStatement(sql2);
+			psmt.setInt(1, seq);
+			psmt.setString(2, vo.getBbsTitle());
+			psmt.setString(3, vo.getBbsContent());
+			psmt.setString(4, vo.getBbsWriter());
+			psmt.setString(5, vo.getBbsImage());
+
+			int r = psmt.executeUpdate();
+			System.out.println(r + "입력");
+
+			// 반환할 값에 bbs_id 값만 추가해서 반환.
+			vo.setBbsId(seq);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return vo;
 	}
 
 	@Override

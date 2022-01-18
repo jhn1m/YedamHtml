@@ -27,3 +27,5 @@
 	</tbody>
 	<tfoot></tfoot>
 </table>
+
+<a href="${pageContext.request.contextPath }/bulletinForm.do">글 등록</a>
