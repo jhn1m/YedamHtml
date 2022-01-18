@@ -7,6 +7,7 @@
 <title>memberList.jsp</title>
 </head>
 <body>
-
+	<h3>회원 리스트</h3>
+	<h3>${msg }</h3>
 </body>
 </html>
