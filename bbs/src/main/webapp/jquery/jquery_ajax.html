@@ -49,6 +49,7 @@
             })
             return tr
           }
+
           function makeBody(dataAry) {
             let tbody = $("<tbody>")
             dataAry.forEach(function (item) {
@@ -56,17 +57,28 @@
             })
             return tbody
           }
+
           // 등록
           //   $("#register").click(function () {})
 
           $("#register").on("click", function () {
-            let id = $("id").val()
-            let fn = $("first_name").val()
-            let ln = $("last_name").val()
-            let em = $("email").val()
-            let gn = $("gender").val()
-            let ia = $("ip_address").val()
-
+            let id = $("#id").val()
+            let fn = $("#first_name").val()
+            let ln = $("#last_name").val()
+            let em = $("#email").val()
+            let gn = $("#gender").val()
+            let ia = $("#ip_address").val()
+            if (
+              id == "" ||
+              fn == "" ||
+              ln == "" ||
+              em == "" ||
+              gn == "" ||
+              ia == ""
+            ) {
+              alert("필수 값을 입력하세요!")
+              return
+            }
             let obj = {
               id: id,
               first_name: fn,
