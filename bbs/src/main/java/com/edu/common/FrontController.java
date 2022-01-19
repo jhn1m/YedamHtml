@@ -17,6 +17,7 @@ import com.edu.web.BulletinListController;
 import com.edu.web.BulletinSelectController;
 import com.edu.web.BulletinUpdateController;
 import com.edu.web.MainController;
+import com.edu.web.NoticeListController;
 
 public class FrontController extends HttpServlet {
 
@@ -36,6 +37,15 @@ public class FrontController extends HttpServlet {
 		map.put("/bulletinSelect.do", new BulletinSelectController());
 		map.put("/bulletinUpdate.do", new BulletinUpdateController());
 		map.put("/bulletinDelete.do", new BulletinDeleteController());
+
+		// 공지사항 컨트롤
+		map.put("/noticeList.do", new NoticeListController());
+		map.put("/noticeinForm.do", new NoticeinFormController());
+		map.put("/noticeinAdd.do", new NoticeinAddController());
+		map.put("/noticeinSelect.do", new NoticeinSelectController());
+		map.put("/noticeinUpdate.do", new NoticeinUpdateController());
+		map.put("/noticeinDelete.do", new NoticeinDeleteController());
+
 	}
 
 	@Override

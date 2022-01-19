@@ -19,7 +19,7 @@ function deleteFunc(id){
 <form action="${pageContext.request.contextPath }/bulletinUpdate.do"
 	method="post">
 	<input type="hidden" name="id" value="${bulletin.bbsId }">
-	<table border="1">
+	<table class = "table" border="1">
 		<tbody>
 			<tr>
 				<th>글번호</th>
@@ -27,11 +27,11 @@ function deleteFunc(id){
 			</tr>
 			<tr>
 				<th>제목</th>
-				<td><input type="text" name="title" value=${bulletin.bbsTitle }></td>
+				<td><input class = "form-control" type="text" name="title" value=${bulletin.bbsTitle }></td>
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td><textarea name="content" cols="20" rows="3">${bulletin.bbsContent}</textarea></td>
+				<td><textarea class = "form-control" name="content" cols="20" rows="3">${bulletin.bbsContent}</textarea></td>
 			</tr>
 			<tr>
 				<th>작성일시</th>

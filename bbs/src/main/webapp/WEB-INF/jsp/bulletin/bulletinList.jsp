@@ -14,7 +14,7 @@
 	method="post">
 	<input type="hidden" name="id">
 </form>
-<table border="1">
+<table class = "table" border="1">
 	<thead>
 		<tr>
 			<th>글번호</th>
