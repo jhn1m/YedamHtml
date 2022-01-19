@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.edu.web.BulletinAddController;
+import com.edu.web.BulletinDeleteController;
 import com.edu.web.BulletinFormController;
 import com.edu.web.BulletinListController;
 import com.edu.web.BulletinSelectController;
+import com.edu.web.BulletinUpdateController;
 import com.edu.web.MainController;
 
 public class FrontController extends HttpServlet {
@@ -26,16 +28,16 @@ public class FrontController extends HttpServlet {
 
 		// url 패턴 - 컨트롤러
 		map.put("/main.do", new MainController());
-		
+
 		// 게시판 컨트롤
 		map.put("/bulletinList.do", new BulletinListController());
 		map.put("/bulletinForm.do", new BulletinFormController());
 		map.put("/bulletinAdd.do", new BulletinAddController());
 		map.put("/bulletinSelect.do", new BulletinSelectController());
+		map.put("/bulletinUpdate.do", new BulletinUpdateController());
+		map.put("/bulletinDelete.do", new BulletinDeleteController());
 	}
 
-	
-	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 한글처리

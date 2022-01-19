@@ -8,7 +8,10 @@
 		document.forms.frm.submit();
 	}
 </script>
-<form id="frm" name="frm" action="${pageContext.request.contextPath }/bulletinSelect.do" method="post">
+
+<form id="frm" name="frm"
+	action="${pageContext.request.contextPath }/bulletinSelect.do"
+	method="post">
 	<input type="hidden" name="id">
 </form>
 <table border="1">

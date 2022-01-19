@@ -45,7 +45,7 @@ public class BulletinDAO extends DAO implements BulletinService {
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, bbsId);
-			
+
 			rs = psmt.executeQuery();
 			if (rs.next()) {
 				bulletin = new BulletinVO();
@@ -56,6 +56,9 @@ public class BulletinDAO extends DAO implements BulletinService {
 				bulletin.setBbsImage(rs.getString("bbs_image"));
 				bulletin.setBbsHit(rs.getInt("bbs_hit"));
 				bulletin.setBbsCreateDate(rs.getString("bbs_create_date"));
+
+				// 카운트 증가
+				updateCount(bbsId);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -63,6 +66,22 @@ public class BulletinDAO extends DAO implements BulletinService {
 			disconnect();
 		}
 		return bulletin;
+	}
+
+	// 조회수 증가
+	public void updateCount(int id) {
+		connect();
+		String sql = "update bbs set bbs_hit = bbs_hit + 1 where bbs_id = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, id);
+			int r = psmt.executeUpdate();
+			System.out.println(r + "건 수정");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
 	}
 
 	@Override
@@ -90,7 +109,7 @@ public class BulletinDAO extends DAO implements BulletinService {
 
 			// 반환할 값에 bbs_id 값만 추가해서 반환.
 			vo.setBbsId(seq);
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -101,12 +120,42 @@ public class BulletinDAO extends DAO implements BulletinService {
 
 	@Override
 	public BulletinVO update(BulletinVO vo) {
-		return null;
+		connect();
+		String sql = "update bbs set bbs_title = ?, bbs_content = ?, bbs_image = nvl(?, bbs_image)"
+				+ "where bbs_id = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getBbsTitle());
+			psmt.setString(2, vo.getBbsContent());
+			psmt.setString(3, vo.getBbsImage());
+			psmt.setInt(4, vo.getBbsId());
+
+			int r = psmt.executeUpdate();
+			System.out.println(r + "건 변경.");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+
+		return vo;
 	}
 
 	@Override
 	public int delete(int bbsId) {
-		return 0;
+		connect();
+		String sql = "delete from bbs where bbs_id=?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, bbsId);
+			int r = psmt.executeUpdate();
+			System.out.println(r + "삭제됨.");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			disconnect();
+		}
+		return bbsId;
 	}
 
 }
