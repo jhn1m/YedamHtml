@@ -26,6 +26,7 @@ import com.edu.web.NoticeinUpdateController;
 
 public class FrontController extends HttpServlet {
 
+	private static final long serialVersionUID = 1L;
 	Map<String, Controller> map = null;
 
 	@Override
@@ -59,8 +60,8 @@ public class FrontController extends HttpServlet {
 		req.setCharacterEncoding("utf-8");
 		resp.setCharacterEncoding("utf-8");
 
-		String uri = req.getRequestURI(); // /edu2/commentAdd.do
-		String context = req.getContextPath(); // /edu2
+		String uri = req.getRequestURI();
+		String context = req.getContextPath();
 		String path = uri.substring(context.length());
 
 		Controller control = map.get(path);

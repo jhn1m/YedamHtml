@@ -7,13 +7,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.edu.common.Controller;
+import com.edu.service.NoticeService;
+import com.edu.serviceImpl.NoticeDAO;
 
 public class NoticeinDeleteController implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
+		String id = req.getParameter("id");
+		
+		NoticeService service = new NoticeDAO();
+		service.delete(Integer.parseInt(id));
+		
+		resp.sendRedirect("noticeList.do");
 	}
 
 }

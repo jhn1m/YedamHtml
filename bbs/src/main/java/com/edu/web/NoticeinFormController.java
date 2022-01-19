@@ -7,13 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.edu.common.Controller;
+import com.edu.common.HttpUtil;
 
 public class NoticeinFormController implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
+		String path = "notice/noticeForm.tiles";
+		HttpUtil.forward(req, resp, path);
 	}
 
 }

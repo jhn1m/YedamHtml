@@ -17,11 +17,12 @@ public class NoticeDAO extends DAO implements NoticeService {
 		String sql = "SELECT * FROM notice order by 1";
 		try {
 			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
 			while (rs.next()) {
 				NoticeVO notice = new NoticeVO();
 				notice.setNoticeId(rs.getInt("notice_id"));
 				notice.setNoticeTitle(rs.getString("notice_title"));
-				notice.setNoticeContent(rs.getString("noticeContent"));
+				notice.setNoticeContent(rs.getString("notice_content"));
 				notice.setNoticeWdate(rs.getString("notice_wdate"));
 				notice.setNoticeHit(rs.getInt("notice_hit"));
 				list.add(notice);
@@ -48,7 +49,7 @@ public class NoticeDAO extends DAO implements NoticeService {
 				notice = new NoticeVO();
 				notice.setNoticeId(rs.getInt("notice_id"));
 				notice.setNoticeTitle(rs.getString("notice_title"));
-				notice.setNoticeContent(rs.getString("noticeContent"));
+				notice.setNoticeContent(rs.getString("notice_content"));
 				notice.setNoticeWdate(rs.getString("notice_wdate"));
 				notice.setNoticeHit(rs.getInt("notice_hit"));
 

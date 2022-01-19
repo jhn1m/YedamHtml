@@ -22,9 +22,9 @@ public class BulletinAddController implements Controller {
 		String path = "bulletinList.do";
 
 		BulletinVO vo = new BulletinVO();
+		vo.setBbsTitle(req.getParameter("title"));
 		vo.setBbsWriter(req.getParameter("writer"));
 		vo.setBbsContent(req.getParameter("content"));
-		vo.setBbsTitle(req.getParameter("title"));
 		vo.setBbsImage(req.getParameter("image"));
 
 		BulletinService service = new BulletinDAO();
