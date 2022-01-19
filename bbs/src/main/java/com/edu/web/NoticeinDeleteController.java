@@ -1,4 +1,4 @@
-package com.edu.common;
+package com.edu.web;
 
 import java.io.IOException;
 
@@ -6,7 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class NoticeinFormController implements Controller {
+import com.edu.common.Controller;
+
+public class NoticeinDeleteController implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

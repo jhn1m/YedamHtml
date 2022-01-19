@@ -18,6 +18,11 @@ import com.edu.web.BulletinSelectController;
 import com.edu.web.BulletinUpdateController;
 import com.edu.web.MainController;
 import com.edu.web.NoticeListController;
+import com.edu.web.NoticeinAddController;
+import com.edu.web.NoticeinDeleteController;
+import com.edu.web.NoticeinFormController;
+import com.edu.web.NoticeinSelectController;
+import com.edu.web.NoticeinUpdateController;
 
 public class FrontController extends HttpServlet {
 

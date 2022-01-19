@@ -1,10 +1,12 @@
-package com.edu.common;
+package com.edu.web;
 
 import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.edu.common.Controller;
 
 public class NoticeinAddController implements Controller {
 
