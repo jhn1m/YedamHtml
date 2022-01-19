@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "first_name": "Cristobal",
+    "last_name": "Disbrow",
+    "email": "cdisbrow0@bandcamp.com",
+    "gender": "Polygender",
+    "ip_address": "3.232.152.54"
+  },
+  {
+    "id": 2,
+    "first_name": "Baxie",
+    "last_name": "Kendle",
+    "email": "bkendle1@csmonitor.com",
+    "gender": "Male",
+    "ip_address": "72.253.7.162"
+  },
+  {
+    "id": 3,
+    "first_name": "Chery",
+    "last_name": "Lalonde",
+    "email": "clalonde2@biblegateway.com",
+    "gender": "Male",
+    "ip_address": "199.223.35.80"
+  },
+  {
+    "id": 4,
+    "first_name": "Harlan",
+    "last_name": "O' Flaherty",
+    "email": "hoflaherty3@slideshare.net",
+    "gender": "Female",
+    "ip_address": "60.30.116.55"
+  },
+  {
+    "id": 5,
+    "first_name": "Noby",
+    "last_name": "Mapplebeck",
+    "email": "nmapplebeck4@mlb.com",
+    "gender": "Genderfluid",
+    "ip_address": "86.84.169.12"
+  }
+]
