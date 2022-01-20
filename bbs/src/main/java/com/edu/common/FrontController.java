@@ -16,6 +16,8 @@ import com.edu.web.BulletinFormController;
 import com.edu.web.BulletinListController;
 import com.edu.web.BulletinSelectController;
 import com.edu.web.BulletinUpdateController;
+import com.edu.web.LoginController;
+import com.edu.web.LoginFormController;
 import com.edu.web.MainController;
 import com.edu.web.NoticeListController;
 import com.edu.web.NoticeinAddController;
@@ -23,6 +25,9 @@ import com.edu.web.NoticeinDeleteController;
 import com.edu.web.NoticeinFormController;
 import com.edu.web.NoticeinSelectController;
 import com.edu.web.NoticeinUpdateController;
+import com.edu.web.ReplyDeleteController;
+import com.edu.web.ReplyRegisterController;
+import com.edu.web.ReplySelectController;
 
 public class FrontController extends HttpServlet {
 
@@ -52,6 +57,14 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeinUpdate.do", new NoticeinUpdateController());
 		map.put("/noticeinDelete.do", new NoticeinDeleteController());
 
+		// 댓글 컨트롤
+		map.put("/replyRegister.do", new ReplyRegisterController());
+		map.put("/replySelect.do", new ReplySelectController());
+		map.put("/deleteReply.do", new ReplyDeleteController());
+		
+		// 회원관련
+		map.put("/loginForm.do", new LoginFormController());
+		map.put("/login.do", new LoginController());
 	}
 
 	@Override
