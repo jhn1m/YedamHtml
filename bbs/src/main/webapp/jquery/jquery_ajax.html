@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>jquery_ajax.html</title>
+    <style>
+      #add {
+        display: inline-block;
+        width: 400px;
+      }
+    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
       try {
@@ -43,6 +49,17 @@
 
           function makeTr(obj) {
             let tr = $("<tr>").attr("id", obj.id)
+            $(tr).click(function () {
+              // 한건 클릭 > 각 요소찾아와서 값을 대입
+              // let id = $(this).children().eq(0).text()
+
+              $("#id").val($(this).children().eq(0).text()) // id 지정
+              $("#first_name").val($(this).children().eq(1).text()) // 이름 지정
+              $("#last_name").val($(this).children().eq(2).text()) // 성 지정
+              $("#email").val($(this).children().eq(3).text()) // 이메일 지정
+              $("#gender").val($(this).children().eq(4).text()) // 성별 지정
+              $("#ip_address").val($(this).children().eq(5).text()) // ip 지정
+            })
 
             fields.forEach(function (field) {
               let td = $("<td>").text(obj[field])
@@ -51,9 +68,15 @@
             // 버튼 추가
             let btn = $("<button>").text("삭제")
             // btn.append(document.createTextNode("삭제"))
-            btn.on("click", function (e) {
-              e.target.parentNode.parentNode.remove()
+
+            // btn.on("click", function (e) {
+            //   e.target.parentNode.parentNode.remove()
+            // })
+
+            btn.click(function () {
+              $(btn).parent().parent().remove()
             })
+
             let td = $("<td>").html(btn) // <td><button>삭제</button></td>
             tr.append(td)
             return tr
@@ -131,9 +154,22 @@
 
             let tr = makeTr(obj)
           })
+          // 변경
+          $("#modify").on("click", function () {
+            // 수정화면 > 리스트 결과값에 반영
+            let fn = $("#first_name").val()
+            let ln = $("#last_name").val()
+            let em = $("#email").val()
+            let gn = $("#gender").val()
+            let ia = $("#ip_address").val()
 
-          $("#show").on("click", "tr", function () {
-            console.log(this)
+            let findId = $("#id").val() // 리스트중에서 찾을 아이디
+
+            $(`#${findId}`).children().eq(1).text(fn)
+            $(`#${findId}`).children().eq(2).text(ln)
+            $(`#${findId}`).children().eq(3).text(em)
+            $(`#${findId}`).children().eq(4).text(gn)
+            $(`#${findId}`).children().eq(5).text(ia)
           })
         })
       } catch (error) {
@@ -151,7 +187,7 @@
       성별 : <input type="text" id="gender" /><br />
       IP : <input type="text" id="ip_address" /><br />
       <button id="register">등록</button>
-      <button id="update">수정</button>
+      <button id="modify">수정</button>
     </div>
     <div id="show"></div>
   </body>
