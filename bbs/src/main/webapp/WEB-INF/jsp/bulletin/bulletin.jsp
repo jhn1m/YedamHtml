@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- bulletin.jsp -->
 
 <script>
@@ -26,7 +26,7 @@ function deleteFunc(id){
 		<tbody>
 			<tr>
 				<th>글번호</th>
-				<td>${bulletin.bbsId }</td>
+				<td>${bulletin.bbsId }/ 작성자 : ${bulletin.bbsWriter }</td>
 			</tr>
 			<tr>
 				<th>제목</th>
@@ -47,10 +47,19 @@ function deleteFunc(id){
 				<td>${bulletin.bbsHit }</td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="수정"> <input
-					type="reset" value="초기화"> <input type="button" value="삭제"
-					onclick="deleteFunc(${bulletin.bbsId})"></td>
-
+				<td colspan="2"><c:choose>
+						<c:when test="${bulletin.bbsWriter == sessionId }">
+							<input type="submit" value="수정">
+							<input type="reset" value="초기화">
+							<input type="button" value="삭제"
+								onclick="deleteFunc(${bulletin.bbsId})">
+						</c:when>
+						<c:otherwise>
+						<input type = "submit" disabled value = "수정">
+							<a href="${pageContext.request.contextPath }/bulletinList.do">글
+								목록으로</a>
+						</c:otherwise>
+					</c:choose></td>
 			</tr>
 		</tbody>
 	</table>
