@@ -43,15 +43,26 @@
 
           function makeTr(obj) {
             let tr = $("<tr>").attr("id", obj.id)
+
             fields.forEach(function (field) {
               let td = $("<td>").text(obj[field])
               tr.append(td)
             })
+            // 버튼 추가
+            let btn = $("<button>").text("삭제")
+            // btn.append(document.createTextNode("삭제"))
+            btn.on("click", function (e) {
+              e.target.parentNode.parentNode.remove()
+            })
+            let td = $("<td>").html(btn) // <td><button>삭제</button></td>
+            tr.append(td)
             return tr
           }
 
           function makeBody(dataAry) {
             let tbody = $("<tbody>")
+            let td = $("<td>")
+
             dataAry.forEach(function (item) {
               tbody.append(makeTr(item))
             })
@@ -60,7 +71,6 @@
 
           // 등록
           //   $("#register").click(function () {})
-
           $("#register").on("click", function () {
             let id = $("#id").val()
             let fn = $("#first_name").val()
@@ -92,6 +102,39 @@
 
             $("#show > table > tbody").append(tr)
           })
+          $("#update").on("click", function () {
+            let id = $("#id").val()
+            let fn = $("#first_name").val()
+            let ln = $("#last_name").val()
+            let em = $("#email").val()
+            let gn = $("#gender").val()
+            let ia = $("#ip_address").val()
+            if (
+              id == "" ||
+              fn == "" ||
+              ln == "" ||
+              em == "" ||
+              gn == "" ||
+              ia == ""
+            ) {
+              alert("필수 값을 입력하세요!")
+              return
+            }
+            let obj = {
+              id: this.id,
+              first_name: this.fn,
+              last_name: this.ln,
+              email: this.em,
+              gender: this.gn,
+              ip_address: this.ia,
+            }
+
+            let tr = makeTr(obj)
+          })
+
+          $("#show").on("click", "tr", function () {
+            console.log(this)
+          })
         })
       } catch (error) {
         console.error(error)
@@ -108,6 +151,7 @@
       성별 : <input type="text" id="gender" /><br />
       IP : <input type="text" id="ip_address" /><br />
       <button id="register">등록</button>
+      <button id="update">수정</button>
     </div>
     <div id="show"></div>
   </body>
