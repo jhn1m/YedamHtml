@@ -16,6 +16,7 @@ import com.edu.web.BulletinFormController;
 import com.edu.web.BulletinListController;
 import com.edu.web.BulletinSelectController;
 import com.edu.web.BulletinUpdateController;
+import com.edu.web.LogOutController;
 import com.edu.web.LoginController;
 import com.edu.web.LoginFormController;
 import com.edu.web.MainController;
@@ -65,6 +66,7 @@ public class FrontController extends HttpServlet {
 		// 회원관련
 		map.put("/loginForm.do", new LoginFormController());
 		map.put("/login.do", new LoginController());
+		map.put("/logOut.do", new LogOutController());
 	}
 
 	@Override

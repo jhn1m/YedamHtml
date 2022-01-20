@@ -78,10 +78,10 @@ div.row {
 	</div>
 	<div class="reply-register">
 		<div>
-			작성자 : <span id="writer">${bulletin.bbsWriter }</span>
+			작성자 : <span id="writer">${sessionId }</span>
 		</div>
 		<div>
-			<textarea cols="40" rows="5" id="content"></textarea>
+			<textarea cols="50" rows="3" id="content"></textarea>
 		</div>
 		<div>
 			<button id="register">등록</button>
