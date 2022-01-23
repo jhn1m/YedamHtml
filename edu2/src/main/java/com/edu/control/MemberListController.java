@@ -1,25 +1,27 @@
 package com.edu.control;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.edu.common.Controller;
+import com.edu.model.MemberDAO;
+import com.edu.model.MemberVO;
 
 public class MemberListController implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String id = req.getParameter("id");
-		String pw = req.getParameter("pw");
+		MemberDAO dao = new MemberDAO();
 		
-		req.setAttribute("id", id);
-		req.setAttribute("pw", pw);
+		List<MemberVO> list = dao.getMemberList();
 		
-		//resp.sendRedirect("member/memberList.jsp");
-		req.getRequestDispatcher("member/memberList.jsp").forward(req, resp);
+		req.setAttribute("memberList", list); // 속성추가
+		req.getRequestDispatcher("memberResult/memberListOutput.jsp").forward(req, resp);
+		
 	}
 
 }

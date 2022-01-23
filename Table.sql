@@ -35,3 +35,21 @@ SELECT value FROM id_repository WHERE name = 'FAQ';
 INSERT INTO faq VALUES(1, 'admin', 'faq공지', sysdate);
 INSERT INTO faq VALUES(2, 'admin', 'faq공지2', sysdate);
 UPDATE id_repository SET VALUE = 2 + 1 WHERE NAME = 'FAQ';
+
+
+-- 1/18
+CREATE table bbs(
+    bbs_id NUMBER PRIMARY KEY,
+    bbs_title varchar2(100),
+    bbs_content varchar2(1000),
+    bbs_writer varchar2(100),
+    bbs_image VARCHAR2(100),
+    bbs_create_date date,
+    bbs_hit number
+);
+
+insert into bbs values(bbs_id_seq.nextval,'제목2', '내용2', 'user02', 'test.jpg', sysdate, 0);
+
+select * from bbs order by 1;
+
+commit;
