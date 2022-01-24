@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>basic_mn.html</title>
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+      const members = [
+        {
+          fullName: "GHong",
+          age: 20,
+          phone: "010-1111-1111",
+        },
+        {
+          fullName: "Geong",
+          age: 24,
+          phone: "010-2222-2222",
+        },
+        {
+          fullName: "King",
+          age: 40,
+          phone: "010-3333-3333",
+        },
+      ]
+
+      function delFnc() {
+        $(this).parent().parent().remove() // this(현재누른) 버튼의 부모 > td 의 부모 > tr 를 삭제하라
+      }
+
+      // 마우스 오버
+      function mouseOverFnc() {
+        $(this).css("background-color", "yellow")
+      }
+
+      // 마우스 아웃
+      function mouseOutFnc() {
+        $(this).css("background-color", "")
+      }
+
+      // document.addEventListener("DOMContentLoaded", function(){})
+      $(document).ready(function () {
+        let tbl = $("<table id = 'tbl'>").attr("border", "1")
+        members.forEach(function (item) {
+          let tr = $("<tr>").append(
+            $("<td>").text(item.fullName), // <td>홍길동</td>
+            $("<td>").text(item.age), // <td>20</td>
+            $("<td>").text(item.phone), // <td>010-1111-2345</td>
+            $("<td>").html($("<button>").text("삭제").click(delFnc)) // <td><button></button></td>
+          )
+          tr.mouseover(mouseOverFnc).mouseout(mouseOutFnc)
+          tbl.append(tr)
+        })
+        // $("#show").append(tbl)
+
+        // div 0 번째 인덱스에 추가하는 것
+        $("div").eq(1).append(tbl)
+      })
+    </script>
+  </head>
+  <body>
+    <div id="show">div 1</div>
+    <div id="show">div 2</div>
+    <div id="show">div 3</div>
+    <div id="show">div 4</div>
+  </body>
+</html>

@@ -1,31 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<form action="${pageContext.request.contextPath }/bulletinAdd.do"
-	method="post">
+<script>
+	function submitForm(){
+		event.preventDefault(); // 전송기능을 차단
+		
+		document.querySelector("[name='title']").value;
+		var title = $('[name="title"]').val();
+		var writer = $('[name="writer"]').val();
+		var content = $('[name="content"]').val();
+		var image = $('[name="image"]').val();
+		
+		// 필수 입력항목 체크
+		if(title == '' || writer == '' || content == '' || image == ''){
+			alert("입력항목을 확인하세요.")
+			return;
+		}
+		document.forms.frm.submit(); // 전송처리
+	}
+</script>
+
+
+<h3>글 등록</h3>
+<form name = "frm" action="${pageContext.request.contextPath }/bulletinAdd.do"
+	method="post" enctype = "multipart/form-data" onsubmit="submitForm()">
 	<table border="1">
 		<tbody>
 			<tr>
 				<th>제목</th>
-				<td><input type="text" name="title"></td>
+				<td><input class = "form-control" type="text" name="title"></td>
 			</tr>
 			<tr>
 				<th>작성자</th>
-				<td><input type="text" name="writer"></td>
+				<td><input class = "form-control" type="text" name="writer" value="${sessionId}"></td>
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td><textarea name="content" cols="20" rows="4"></textarea></td>
+				<td><textarea class = "form-control" name="content" cols="20" rows="4"></textarea></td>
 			</tr>
 			<tr>
 				<th>이미지</th>
-				<td><input type="text" name="image"></td>
+				<td><input class = "form-control" type="file" name="image"></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit"><input
-					type="reset"></td>
+				<td colspan="2">
+				<input type="submit">
+				<input type="reset">
+				</td>
 			</tr>
 		</tbody>
-		<tfoot></tfoot>
 	</table>
 </form>

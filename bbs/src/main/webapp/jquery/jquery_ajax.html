@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jquery_ajax.html</title>
+    <style>
+      #add {
+        display: inline-block;
+        width: 400px;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      try {
+        $(document).ready(function () {
+          $.ajax({
+            url: "jquery_data.json", // 요청페이지
+            type: "get", // 요청방식 : get, post
+            dataType: "json", // 기본방식이 json라 안적어도 됨
+            // 성공 시
+            success: makePage,
+            // 에러 발생 시
+            error: function (err) {
+              console.log(err)
+            },
+          })
+
+          let fields = [
+            "id",
+            "first_name",
+            "last_name",
+            "email",
+            "gender",
+            "ip_address",
+          ]
+
+          function makePage(result) {
+            console.log(result)
+            let table = $("<table border = '1'>")
+            let thead = $("<thead>")
+            let tbody = makeBody(result)
+
+            table.append(tbody)
+
+            $("#show").append(table)
+          }
+
+          function makeTr(obj) {
+            let tr = $("<tr>").attr("id", obj.id)
+            $(tr).click(function () {
+              // 한건 클릭 > 각 요소찾아와서 값을 대입
+              // let id = $(this).children().eq(0).text()
+
+              $("#id").val($(this).children().eq(0).text()) // id 지정
+              $("#first_name").val($(this).children().eq(1).text()) // 이름 지정
+              $("#last_name").val($(this).children().eq(2).text()) // 성 지정
+              $("#email").val($(this).children().eq(3).text()) // 이메일 지정
+              $("#gender").val($(this).children().eq(4).text()) // 성별 지정
+              $("#ip_address").val($(this).children().eq(5).text()) // ip 지정
+            })
+
+            fields.forEach(function (field) {
+              let td = $("<td>").text(obj[field])
+              tr.append(td)
+            })
+            // 버튼 추가
+            let btn = $("<button>").text("삭제")
+            // btn.append(document.createTextNode("삭제"))
+
+            // btn.on("click", function (e) {
+            //   e.target.parentNode.parentNode.remove()
+            // })
+
+            btn.click(function () {
+              $(btn).parent().parent().remove()
+            })
+
+            let td = $("<td>").html(btn) // <td><button>삭제</button></td>
+            tr.append(td)
+            return tr
+          }
+
+          function makeBody(dataAry) {
+            let tbody = $("<tbody>")
+            let td = $("<td>")
+
+            dataAry.forEach(function (item) {
+              tbody.append(makeTr(item))
+            })
+            return tbody
+          }
+
+          // 등록
+          //   $("#register").click(function () {})
+          $("#register").on("click", function () {
+            let id = $("#id").val()
+            let fn = $("#first_name").val()
+            let ln = $("#last_name").val()
+            let em = $("#email").val()
+            let gn = $("#gender").val()
+            let ia = $("#ip_address").val()
+            if (
+              id == "" ||
+              fn == "" ||
+              ln == "" ||
+              em == "" ||
+              gn == "" ||
+              ia == ""
+            ) {
+              alert("필수 값을 입력하세요!")
+              return
+            }
+            let obj = {
+              id: id,
+              first_name: fn,
+              last_name: ln,
+              email: em,
+              gender: gn,
+              ip_address: ia,
+            }
+
+            let tr = makeTr(obj)
+
+            $("#show > table > tbody").append(tr)
+          })
+          $("#update").on("click", function () {
+            let id = $("#id").val()
+            let fn = $("#first_name").val()
+            let ln = $("#last_name").val()
+            let em = $("#email").val()
+            let gn = $("#gender").val()
+            let ia = $("#ip_address").val()
+            if (
+              id == "" ||
+              fn == "" ||
+              ln == "" ||
+              em == "" ||
+              gn == "" ||
+              ia == ""
+            ) {
+              alert("필수 값을 입력하세요!")
+              return
+            }
+            let obj = {
+              id: this.id,
+              first_name: this.fn,
+              last_name: this.ln,
+              email: this.em,
+              gender: this.gn,
+              ip_address: this.ia,
+            }
+
+            let tr = makeTr(obj)
+          })
+          // 변경
+          $("#modify").on("click", function () {
+            // 수정화면 > 리스트 결과값에 반영
+            let fn = $("#first_name").val()
+            let ln = $("#last_name").val()
+            let em = $("#email").val()
+            let gn = $("#gender").val()
+            let ia = $("#ip_address").val()
+
+            let findId = $("#id").val() // 리스트중에서 찾을 아이디
+
+            $(`#${findId}`).children().eq(1).text(fn)
+            $(`#${findId}`).children().eq(2).text(ln)
+            $(`#${findId}`).children().eq(3).text(em)
+            $(`#${findId}`).children().eq(4).text(gn)
+            $(`#${findId}`).children().eq(5).text(ia)
+          })
+        })
+      } catch (error) {
+        console.error(error)
+      }
+    </script>
+  </head>
+  <body>
+    <h3>입력화면</h3>
+    <div id="add">
+      아이디 : <input type="text" id="id" /><br />
+      이름 : <input type="text" id="first_name" /><br />
+      성씨 : <input type="text" id="last_name" /><br />
+      이메일 : <input type="text" id="email" /><br />
+      성별 : <input type="text" id="gender" /><br />
+      IP : <input type="text" id="ip_address" /><br />
+      <button id="register">등록</button>
+      <button id="modify">수정</button>
+    </div>
+    <div id="show"></div>
+  </body>
+</html>
