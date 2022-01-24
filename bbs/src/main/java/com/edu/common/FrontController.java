@@ -16,6 +16,7 @@ import com.edu.web.BulletinFormController;
 import com.edu.web.BulletinListController;
 import com.edu.web.BulletinSelectController;
 import com.edu.web.BulletinUpdateController;
+import com.edu.web.ItemListJsonController;
 import com.edu.web.LogOutController;
 import com.edu.web.LoginController;
 import com.edu.web.LoginFormController;
@@ -31,17 +32,20 @@ import com.edu.web.NoticeinUpdateController;
 import com.edu.web.ReplyDeleteController;
 import com.edu.web.ReplyRegisterController;
 import com.edu.web.ReplySelectController;
+import com.edu.web.ShopItemListController;
 
-public class FrontController extends HttpServlet {
-
+public class FrontController extends HttpServlet { /**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
+// 서블릿이 될려면 HttpServlet을 상속받아야된다
 	Map<String, Controller> map = null;
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		map = new HashMap<String, Controller>();
+		map = new HashMap<String, Controller>(); // Hash<String,Controller> map=new HashMap<>();
 
-		// url 패턴 - 컨트롤러
+		// url패턴 , 컨트롤러
 		map.put("/main.do", new MainController());
 
 		// 게시판 컨트롤
@@ -52,38 +56,43 @@ public class FrontController extends HttpServlet {
 		map.put("/bulletinUpdate.do", new BulletinUpdateController());
 		map.put("/bulletinDelete.do", new BulletinDeleteController());
 
+		// 댓글관련 컨트롤
+		map.put("/replySelect.do", new ReplySelectController());
+		map.put("/replyRegister.do", new ReplyRegisterController());
+		map.put("/deleteReply.do", new ReplyDeleteController());
+
 		// 공지사항 컨트롤
 		map.put("/noticeList.do", new NoticeListController());
-		map.put("/noticeinForm.do", new NoticeinFormController());
-		map.put("/noticeinAdd.do", new NoticeinAddController());
-		map.put("/noticeinSelect.do", new NoticeinSelectController());
-		map.put("/noticeinUpdate.do", new NoticeinUpdateController());
-		map.put("/noticeinDelete.do", new NoticeinDeleteController());
-
-		// 댓글 컨트롤
-		map.put("/replyRegister.do", new ReplyRegisterController());
-		map.put("/replySelect.do", new ReplySelectController());
-		map.put("/deleteReply.do", new ReplyDeleteController());
+		map.put("/noticeForm.do", new NoticeinFormController());
+		map.put("/noticeAdd.do", new NoticeinAddController());
+		map.put("/noticeSelect.do", new NoticeinSelectController());
+		map.put("/noticeUpdate.do", new NoticeinUpdateController());
+		map.put("/noticeDelete.do", new NoticeinDeleteController());
 
 		// 회원관련
 		map.put("/loginForm.do", new LoginFormController());
 		map.put("/login.do", new LoginController());
 		map.put("/logOut.do", new LogOutController());
-		map.put("/mypage.do", new MyPageController());
+		map.put("/myPage.do", new MyPageController());
 		map.put("/myUpdate.do", new MyPageUpdateController());
+
+		// 아작스 처리
+		map.put("/shopItemList.do", new ShopItemListController());
+		map.put("itemListJson.do", new ItemListJsonController());
 	}
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 한글처리
-		req.setCharacterEncoding("utf-8");
-		resp.setCharacterEncoding("utf-8");
 
-		String uri = req.getRequestURI();
-		String context = req.getContextPath();
-		String path = uri.substring(context.length());
+		req.setCharacterEncoding("utf-8");// 요청정보 한글처리
+		resp.setCharacterEncoding("utf-8"); // 응답정보 한글
 
-		Controller control = map.get(path);
+		String uri = req.getRequestURI(); // equ2/memberList.do 요청정보에서 uri정보를 읽어오기
+		String context = req.getContextPath();// edu2 정보 가져오기
+		String path = uri.substring(context.length()); // uri값에서 /memberList.do
+		System.out.println(path);
+		Controller control = map.get(path); // get으로 키값 넣기
 		control.execute(req, resp);
 	}
+
 }

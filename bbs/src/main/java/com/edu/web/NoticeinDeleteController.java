@@ -15,10 +15,10 @@ public class NoticeinDeleteController implements Controller {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String id = req.getParameter("id");
-		
+
 		NoticeService service = new NoticeDAO();
 		service.delete(Integer.parseInt(id));
-		
+
 		resp.sendRedirect("noticeList.do");
 	}
 

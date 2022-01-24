@@ -16,16 +16,18 @@ public class MyPageController implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// sessionId 값을 활용해서
-		// 요청 정보의 parameter을 활용.
-		// session정보에 있는 sessionId라는 속성을 이용
+		String path = "member/mypage.tiles";
+
+		// session 값을 활용해서 조회.
+		// 요청정보에 있는 parameter를 활용
+		// session 정보에 있는 sessionId.
 		String id = req.getParameter("id");
 		MemberService service = new MemberDAO();
 		MemberVO member = service.memberSelect(id);
 
-		req.setAttribute("member", member);
+		req.setAttribute("member", member); //
 
-		HttpUtil.forward(req, resp, "member/mypage.tiles");
+		HttpUtil.forward(req, resp, path);
 
 	}
 

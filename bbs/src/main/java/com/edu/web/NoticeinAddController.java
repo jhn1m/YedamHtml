@@ -16,17 +16,17 @@ public class NoticeinAddController implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String path = "noticeList.do";
-		
+
+		String path = "/noticeList.do";
+
 		NoticeVO vo = new NoticeVO();
 		vo.setNoticeTitle(req.getParameter("title"));
 		vo.setNoticeContent(req.getParameter("content"));
-		
+
 		NoticeService service = new NoticeDAO();
 		service.insert(vo);
-		
+
 		HttpUtil.forward(req, resp, path);
-		
 	}
 
 }

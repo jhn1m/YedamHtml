@@ -1,19 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8" />
-<title>template.jsp</title>
-<title>첫 페이지 (template)</title>
+<meta charset="UTF-8">
+<title>첫페이지(template)</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
+
+
 <!-- jQuery 라이브러리 추가 -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style>
+.menu>ul {
+	list-style-type: none;
+}
+
+.menu li {
+	display: inline-block;
+	width: 90px;
+	margin: 10px;
+}
+
+a {
+	text-decoration: none
+}
+</style>
 </head>
 <body>
 <body>
@@ -67,6 +84,4 @@
 		<tiles:insertAttribute name="foot"></tiles:insertAttribute>
 	</div>
 </body>
-
-
 </html>

@@ -14,12 +14,12 @@ public class BulletinDeleteController implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 입력값 > 삭제 > 리스트
+		// 입력값을 읽어오고 ->DB에서 삭제->리스트로 이동
 		String id = req.getParameter("id");
-		
+
 		BulletinService service = new BulletinDAO();
 		service.delete(Integer.parseInt(id));
-		
+
 		resp.sendRedirect("bulletinList.do");
 	}
 

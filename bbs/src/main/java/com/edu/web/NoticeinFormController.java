@@ -13,7 +13,9 @@ public class NoticeinFormController implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		String path = "notice/noticeForm.tiles";
+
 		HttpUtil.forward(req, resp, path);
 	}
 

@@ -12,19 +12,25 @@ public class NoticeDAO extends DAO implements NoticeService {
 
 	@Override
 	public List<NoticeVO> selectList() {
-		List<NoticeVO> list = new ArrayList<NoticeVO>();
 		connect();
-		String sql = "SELECT * FROM notice order by 1";
+		String sql = "select * from notice order by 1 desc";
+
+		List<NoticeVO> list = new ArrayList<>();
+
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
+
 			while (rs.next()) {
+
 				NoticeVO notice = new NoticeVO();
+
 				notice.setNoticeId(rs.getInt("notice_id"));
 				notice.setNoticeTitle(rs.getString("notice_title"));
 				notice.setNoticeContent(rs.getString("notice_content"));
 				notice.setNoticeWdate(rs.getString("notice_wdate"));
 				notice.setNoticeHit(rs.getInt("notice_hit"));
+
 				list.add(notice);
 			}
 		} catch (SQLException e) {
@@ -32,58 +38,64 @@ public class NoticeDAO extends DAO implements NoticeService {
 		} finally {
 			disconnect();
 		}
+
 		return list;
 	}
 
 	@Override
-	public NoticeVO selectOne(int ntcId) {
+	public NoticeVO selectOne(int noticeId) {
 		connect();
-		String sql = "select * from notice where notice_id = ?";
+		String sql = "select * from notice where notice_id=?";
+
 		NoticeVO notice = null;
+
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, ntcId);
-
+			psmt.setInt(1, noticeId);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
 				notice = new NoticeVO();
+
 				notice.setNoticeId(rs.getInt("notice_id"));
 				notice.setNoticeTitle(rs.getString("notice_title"));
 				notice.setNoticeContent(rs.getString("notice_content"));
 				notice.setNoticeWdate(rs.getString("notice_wdate"));
 				notice.setNoticeHit(rs.getInt("notice_hit"));
 
-				// 카운트 증가
-				updateCount(ntcId);
+				updateCount(noticeId);
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconnect();
 		}
+
 		return notice;
 	}
 
-	// 조회수 증가
+	// 조회수 1씩 증가
 	public void updateCount(int id) {
 		connect();
-		String sql = "UPDATE notice set notice_hit = notice_hit + 1 where notice_id = ?";
+		String sql = "update notice set notice_hit = notice_hit+1 where notice_id=?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, id);
 			int r = psmt.executeUpdate();
-			System.out.println(r + " 건 수정");
+			System.out.println(r + "건이 수정되었습니다");
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			disconnect();
 		}
+
 	}
 
 	@Override
 	public NoticeVO insert(NoticeVO vo) {
 		connect();
 		String sql1 = "select notice_seq.nextval from dual";
-		String sql2 = "insert into notice values(?,?,?,sysdate,0)";
-
+		String sql2 = "insert into notice(notice_id,notice_title,notice_content,notice_wdate,notice_hit) values(?,?,?,sysdate,0)";
 		try {
 			psmt = conn.prepareStatement(sql1);
 			rs = psmt.executeQuery();
@@ -91,29 +103,29 @@ public class NoticeDAO extends DAO implements NoticeService {
 			if (rs.next()) {
 				seq = rs.getInt(1);
 			}
-
 			psmt = conn.prepareStatement(sql2);
 			psmt.setInt(1, seq);
 			psmt.setString(2, vo.getNoticeTitle());
 			psmt.setString(3, vo.getNoticeContent());
 
 			int r = psmt.executeUpdate();
-			System.out.println(r + "입력");
+			System.out.println(r + "건 입력");
 
 			vo.setNoticeId(seq);
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconnect();
 		}
+
 		return vo;
 	}
 
 	@Override
 	public NoticeVO update(NoticeVO vo) {
+
 		connect();
-		String sql = "update notice set notice_title = ?, notice_content = ? where notice_id = ?";
+		String sql = "update notice set notice_title=?,notice_content=? where notice_id=?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getNoticeTitle());
@@ -121,29 +133,36 @@ public class NoticeDAO extends DAO implements NoticeService {
 			psmt.setInt(3, vo.getNoticeId());
 
 			int r = psmt.executeUpdate();
-			System.out.println(r + "건 변경");
+			System.out.println(r + "건이 업데이트 되었습니다");
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconnect();
 		}
 		return vo;
+
 	}
 
 	@Override
-	public int delete(int ntcId) {
+	public int delete(int noticeId) {
+
 		connect();
-		String sql = "delete from notice where notice_id = ?";
+		String sql = "delete from notice where notice_id=?";
+
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, ntcId);
+			psmt.setInt(1, noticeId);
+
 			int r = psmt.executeUpdate();
-			System.out.println(r + "삭제됨");
+			System.out.println(r + "건 삭제됨");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconnect();
 		}
-		return ntcId;
+
+		return noticeId;
 	}
+
 }

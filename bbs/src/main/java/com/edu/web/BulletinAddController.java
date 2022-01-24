@@ -19,33 +19,29 @@ public class BulletinAddController implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 사용자 입력값을 저장 처리 결과 : 게시판 리스트.
-		String path = "bulletinList.do";
-
+		// 사용자의 입력값을 저장 처리결과:게시판리스트
+		String path = "/bulletinList.do";
 		ServletContext context = req.getServletContext();
-		String uploadpath = context.getRealPath("/upload");
+		String uploadPath = context.getRealPath("/upload");
 
-		// new MultipartRequest("요청정보", "저장위치", "maxSize"(5mb초과시 에러), "encoding", "rename정보");
-
-		MultipartRequest multi = new MultipartRequest(req, uploadpath, 1024 * 1024 * 5, "utf-8", new DefaultFileRenamePolicy());
-		// rename 정책에 의해 동일한 파일이 있으면 바꿔버림
-		// image1.png > image11.png
+		// new MutipartRequest("요청정보","저장위치","maxSize","encoding","rename정책");
+		MultipartRequest multi = new MultipartRequest(req, uploadPath, 1023 * 1024 * 5, "utf-8",
+				new DefaultFileRenamePolicy());
+		// image1.PNG => image11.PNG 리네임정책
 
 		BulletinVO vo = new BulletinVO();
-//		vo.setBbsWriter(req.getParameter("writer"));
-//		vo.setBbsImage(req.getParameter("image"));
-//		vo.setBbsTitle(req.getParameter("title"));
-//		vo.setBbsContent(req.getParameter("content"));
-
 		vo.setBbsWriter(multi.getParameter("writer"));
-		vo.setBbsTitle(multi.getParameter("title"));
 		vo.setBbsContent(multi.getParameter("content"));
-		vo.setBbsImage(multi.getFilesystemName("image"));
+		vo.setBbsTitle(multi.getParameter("title"));
+		vo.setBbsImage(multi.getFilesystemName("image")); // 바껴진이름으로 가져옴
 
 		System.out.println(vo);
 
 		BulletinService service = new BulletinDAO();
 		service.insert(vo);
+
 		HttpUtil.forward(req, resp, path);
+
 	}
+
 }

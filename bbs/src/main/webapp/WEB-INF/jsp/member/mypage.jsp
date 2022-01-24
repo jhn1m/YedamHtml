@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-<form action = "" method = "post">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<form action="${pageContext.request.contextPath }/myUpdate.do"
+	method="post">
+	<input type="hidden" name="id" value="${member.id  }">
 	<table border="1">
 		<tr>
 			<th>아이디</th>
@@ -9,19 +11,50 @@
 		</tr>
 		<tr>
 			<th>비밀번호</th>
-			<td><input type="text" name="passwd" value="${member.passwd }"></td>
+			<td><c:choose>
+					<c:when test="${uri == '/myUpdate.do'}">
+                  ${member.passwd }
+               </c:when>
+					<c:otherwise>
+						<input class="form-control" type="text" name="passwd"
+							value="${member.passwd }">
+					</c:otherwise>
+				</c:choose></td>
 		</tr>
 		<tr>
 			<th>이름</th>
-			<td><input type="text" name="name" value="${member.name }"></td>
+			<td><c:choose>
+					<c:when test="${uri == '/myUpdate.do'}">
+                  ${member.name }
+               </c:when>
+					<c:otherwise>
+						<input class="form-control" type="text" name="name"
+							value="${member.name }">
+					</c:otherwise>
+				</c:choose></td>
 		</tr>
 		<tr>
 			<th>메일</th>
-			<td><input type="text" name="mail" value="${member.mail}"></td>
+			<td><c:choose>
+					<c:when test="${uri == '/myUpdate.do'}">
+                  ${member.mail }
+               </c:when>
+					<c:otherwise>
+						<input class="form-control" type="text" name="mail"
+							value="${member.mail }">
+					</c:otherwise>
+				</c:choose></td>
 		</tr>
-		<tr>
-			<td colspan="2"><input type="submit" value="변경"> <input
-				type="reset" value="초기화"></td>
-		</tr>
+		<c:choose>
+			<c:when test="${uri == '/myUpdate.do'}">
+				<a href="bulletinList.do">목록으로</a>
+			</c:when>
+			<c:otherwise>
+				<tr>
+					<td colspan="2"><input type="submit" value="변경"> <input
+						type="reset" value="초기화"></td>
+				</tr>
+			</c:otherwise>
+		</c:choose>
 	</table>
 </form>

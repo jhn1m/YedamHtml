@@ -17,6 +17,7 @@ public class LoginController implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		String path = "member/home.tiles";
 		String id = req.getParameter("userId");
 		String pw = req.getParameter("userPw");
@@ -24,17 +25,19 @@ public class LoginController implements Controller {
 		MemberService service = new MemberDAO();
 		MemberVO member = service.login(id, pw);
 
-		// home페이지 (성공), login페이지 (실패)
+		// 로그인이 성공하면 HOME 페이지로, 실패하며 다시 로그인 페이지로
 		if (member == null) {
 			path = "loginForm.do";
 		} else {
-			// 로그인 성공하면 session에 id, name, mail 값 저장
+			// 로그인 성공하면 session에 id,name,mail을 저장
 			HttpSession session = req.getSession(true);
-			session.setAttribute("sessionId", member.getId());
+			session.setAttribute("sessionId", member.getId()); //
 			session.setAttribute("sessionName", member.getName());
 			session.setAttribute("sessionMail", member.getMail());
 		}
+
 		HttpUtil.forward(req, resp, path);
+
 	}
 
 }

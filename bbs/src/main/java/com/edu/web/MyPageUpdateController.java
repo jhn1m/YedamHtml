@@ -16,26 +16,36 @@ public class MyPageUpdateController implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String path = "member/mypage.tiles";
+
 		// 정보를 읽어와서 변경
-
-		String id = req.getParameter("id");
-		String pw = req.getParameter("passwd");
 		String name = req.getParameter("name");
+		String pw = req.getParameter("passwd");
 		String mail = req.getParameter("mail");
+		String id = req.getParameter("id");
 
-		MemberDAO service = new MemberDAO();
 		MemberVO vo = new MemberVO();
-//		MemberService service = new MemberDAO();
-
 		vo.setId(id);
-		vo.setPasswd(pw);
 		vo.setName(name);
+		vo.setPasswd(pw);
 		vo.setMail(mail);
-		service.memberUpdate(vo);
-		req.setAttribute("member", vo);
-		HttpUtil.forward(req, resp, "member/mypage.tiles");
 
-		// mypage.jsp로 변경된 정보를 전송
+		// 요청페이지정보를 읽어오도록
+		String uri = req.getRequestURI(); // equ2/memberList.do 요청정보에서 uri정보를 읽어오기
+		String context = req.getContextPath();// edu2 정보 가져오기
+		String requestUri = uri.substring(context.length());
+
+		MemberService service = new MemberDAO();
+
+		if (service.memberUpdate(vo)) {
+			req.setAttribute("member", vo);
+		} else {
+			req.setAttribute("member", null);
+		}
+		req.setAttribute("uri", requestUri);
+
+		// mypage.jsp로 변경된 정보를 전송.
+		HttpUtil.forward(req, resp, path);
 
 	}
 

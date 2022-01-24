@@ -14,9 +14,10 @@ public class LogOutController implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession session = req.getSession();
-		session.invalidate(); // session 속성값을 초기화
-		
+
+		HttpSession session = req.getSession(); // true면 세션을
+		session.invalidate(); // session 속성값 초기화
+
 		String path = "layout/home.tiles";
 		HttpUtil.forward(req, resp, path);
 	}
