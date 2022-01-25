@@ -78,7 +78,7 @@ public class FrontController extends HttpServlet { /**
 
 		// 아작스 처리
 		map.put("/shopItemList.do", new ShopItemListController());
-		map.put("itemListJson.do", new ItemListJsonController());
+		map.put("/itemListJson.do", new ItemListJsonController());
 	}
 
 	@Override
