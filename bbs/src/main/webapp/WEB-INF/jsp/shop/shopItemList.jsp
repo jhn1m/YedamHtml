@@ -137,9 +137,9 @@ pageEncoding="UTF-8"%>
 
             var span = $("<span>")
               .addClass("text-muted text-decoration-line-through")
-              .text(item.originPrice)
+              .text(currencyFormat(item.originPrice))
 
-            centerDiv.text(" " + item.salePrice)
+            centerDiv.text(" " + currencyFormat(item.salePrice))
             centerDiv.prepend(h5, likeItDiv, span)
 
             productDetailDiv.append(centerDiv) // 상품상세정보
@@ -160,6 +160,13 @@ pageEncoding="UTF-8"%>
 
             outerDiv.append(midDiv)
             return outerDiv
+          }
+
+          function currencyFormat(won) {
+            return new Intl.NumberFormat("ko-KR", {
+              style: "currency",
+              currency: "KRW",
+            }).format(won)
           }
         </script>
       </div>
